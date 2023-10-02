@@ -1,76 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: theme(colorsRGBValues.white);
+    --foreground: theme(colorsRGBValues.zinc.950);
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
- 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
- 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
- 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --card: theme(colorsRGBValues.white);
+    --card-foreground: theme(colorsRGBValues.zinc.950);
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
- 
-    --radius: 0.5rem;
+    --popover: theme(colorsRGBValues.white);
+    --popover-foreground: theme(colorsRGBValues.zinc.950);
+
+    --primary: theme(colorsRGBValues.orange.400);
+    --primary-foreground: theme(colorsRGBValues.zinc.50);
+    /* --primary: theme(colorsRGBValues.zinc.900);
+    --primary-foreground: theme(colorsRGBValues.zinc.50); */
+
+    --secondary: theme(colorsRGBValues.zinc.100);
+    --secondary-foreground: theme(colorsRGBValues.zinc.900);
+
+    --muted: theme(colorsRGBValues.zinc.100);
+    --muted-foreground: theme(colorsRGBValues.zinc.500);
+
+    --accent: theme(colorsRGBValues.zinc.100);
+    --accent-foreground: theme(colorsRGBValues.zinc.900);
+
+    --destructive: theme(colorsRGBValues.red.500);
+    --destructive-foreground: theme(colorsRGBValues.zinc.50);
+
+    --border: theme(colorsRGBValues.zinc.200);
+    --input: theme(colorsRGBValues.zinc.200);
+    --ring: theme(colorsRGBValues.zinc.950);
+
+    --radius: 1rem;
   }
- 
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
- 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
- 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
- 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
- 
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
- 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
- 
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
- 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+
+  [data-theme='dark'] {
+    --background: theme(colorsRGBValues.zinc.950);
+    --foreground: theme(colorsRGBValues.zinc.50);
+
+    --card: theme(colorsRGBValues.zinc.950);
+    --card-foreground: theme(colorsRGBValues.zinc.50);
+
+    --popover: theme(colorsRGBValues.zinc.950);
+    --popover-foreground: theme(colorsRGBValues.zinc.50);
+
+    /* --primary: theme(colorsRGBValues.zinc.50); */
+    --primary: theme(colorsRGBValues.orange.600);
+    --primary-foreground: theme(colorsRGBValues.zinc.900);
+
+    --secondary: theme(colorsRGBValues.zinc.800);
+    --secondary-foreground: theme(colorsRGBValues.zinc.50);
+
+    --muted: theme(colorsRGBValues.zinc.800);
+    --muted-foreground: theme(colorsRGBValues.zinc.400);
+
+    --accent: theme(colorsRGBValues.zinc.800);
+    --accent-foreground: theme(colorsRGBValues.zinc.50);
+
+    --destructive: theme(colorsRGBValues.red.900);
+    --destructive-foreground: theme(colorsRGBValues.zinc.50);
+
+    --border: theme(colorsRGBValues.zinc.800);
+    --input: theme(colorsRGBValues.zinc.800);
+    --ring: theme(colorsRGBValues.zinc.300);
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen overflow-hidden bg-background bg-noise-texture font-sans text-foreground antialiased;
+  }
+  #root {
+    @apply h-screen overflow-x-hidden overflow-y-scroll;
   }
 }
