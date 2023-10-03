@@ -73,10 +73,12 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply min-h-screen overflow-hidden bg-background bg-noise-texture font-sans text-foreground antialiased;
   }
+
   #root {
-    @apply h-screen overflow-x-hidden overflow-y-scroll;
+    @apply h-screen scroll-pt-8 overflow-x-hidden overflow-y-scroll;
   }
 }
