@@ -13,6 +13,7 @@ import { useScrollToAnchor } from '@/hooks/useScrollToAnchor';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 function Navigation() {
   const matches = useMediaQuery('(min-width: 768px)');
@@ -21,7 +22,7 @@ function Navigation() {
   return (
     <NavigationMenu>
       {matches ? (
-        <NavigationMenuList className="text-base font-medium leading-none text-accent-foreground/70">
+        <NavigationMenuList className="text-base font-medium leading-none">
           <ListItem to="/">Home</ListItem>
           <ListItem to="/#projects">Projects</ListItem>
           <ListItem to="/#about">About</ListItem>
@@ -30,16 +31,12 @@ function Navigation() {
       ) : (
         <Sheet>
           <SheetTrigger asChild>
-            <button
-              aria-label="menu navigation"
-              className="block h-full select-none space-x-1 rounded-sm px-3 py-2
-              leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-accent-foreground md:px-5 md:py-3"
-            >
+            <Button variant="navLink" size="icon">
               <Menu className="h-5 w-5" />
-            </button>
+            </Button>
           </SheetTrigger>
           <SheetContent className="pt-16">
-            <NavigationMenuList className="flex-col items-stretch space-x-0 text-base font-medium leading-none text-accent-foreground/70">
+            <NavigationMenuList className="flex-col items-stretch gap-4 space-x-0 text-base font-medium leading-none">
               <SheetClose asChild>
                 <ListItem to="/">Home</ListItem>
               </SheetClose>
@@ -67,16 +64,11 @@ const ListItem = React.forwardRef<
   return (
     <NavigationMenuItem>
       <NavigationMenuLink asChild>
-        <Link
-          ref={ref}
-          className={cn(
-            'block h-full select-none space-x-1 rounded-sm px-5 py-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-accent-foreground',
-            className
-          )}
-          {...props}
-        >
-          {children}
-        </Link>
+        <Button asChild variant="navLink">
+          <Link ref={ref} {...props}>
+            {children}
+          </Link>
+        </Button>
       </NavigationMenuLink>
     </NavigationMenuItem>
   );

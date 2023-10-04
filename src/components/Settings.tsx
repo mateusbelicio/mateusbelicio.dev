@@ -12,20 +12,19 @@ import {
   DropdownMenuTrigger
 } from './ui/dropdown-menu';
 import { Globe, Moon, Settings as SettingsIcon } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
+import { Button } from './ui/button';
 
 function Settings() {
-  const [theme, setTheme] = useState('system');
+  const { theme, setTheme } = useTheme();
   const [language, setLanguage] = useState('english');
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button
-          aria-label="settings"
-          className="block h-full select-none space-x-1 rounded-sm px-3 py-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-accent-foreground md:px-5 md:py-3"
-        >
+        <Button variant="navLink" size="icon" aria-label="settings" className="">
           <SettingsIcon className="h-5 w-5" />
-        </button>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent sideOffset={12} align="end" className="w-56">
         <DropdownMenuGroup>

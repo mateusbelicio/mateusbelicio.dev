@@ -47,12 +47,13 @@
     --popover: theme(colorsRGBValues.zinc.950);
     --popover-foreground: theme(colorsRGBValues.zinc.50);
 
-    /* --primary: theme(colorsRGBValues.zinc.50); */
-    --primary: theme(colorsRGBValues.orange.600);
-    --primary-foreground: theme(colorsRGBValues.zinc.900);
+    /* --primary: theme(colorsRGBValues.zinc.50); 
+    --primary-foreground: theme(colorsRGBValues.zinc.900);*/
+    --primary: theme(colorsRGBValues.orange.500);
+    --primary-foreground: theme(colorsRGBValues.zinc.50);
 
     --secondary: theme(colorsRGBValues.zinc.800);
-    --secondary-foreground: theme(colorsRGBValues.zinc.50);
+    --secondary-foreground: theme(colorsRGBValues.zinc.100);
 
     --muted: theme(colorsRGBValues.zinc.800);
     --muted-foreground: theme(colorsRGBValues.zinc.400);
@@ -75,10 +76,29 @@
   }
 
   body {
-    @apply min-h-screen overflow-hidden bg-background bg-noise-texture font-sans text-foreground antialiased;
+    @apply min-h-screen overflow-hidden bg-background bg-noise-texture font-sans text-base text-foreground antialiased;
+  }
+
+  p {
+    @apply font-light leading-relaxed text-secondary-foreground;
   }
 
   #root {
     @apply h-screen scroll-pt-8 overflow-x-hidden overflow-y-scroll;
+  }
+}
+
+@layer components {
+  .pattern-circle--before {
+    @apply before:absolute before:content-[url(/src/assets/pattern-circle.svg)];
+  }
+  .pattern-circle--after {
+    @apply after:absolute after:content-[url(/src/assets/pattern-circle.svg)];
+  }
+  .pattern-square--before {
+    @apply before:absolute before:content-[url(/src/assets/pattern-square.svg)];
+  }
+  .pattern-square--after {
+    @apply after:absolute after:content-[url(/src/assets/pattern-square.svg)];
   }
 }

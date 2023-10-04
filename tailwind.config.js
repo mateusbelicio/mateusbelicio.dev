@@ -1,16 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = require('tailwindcss/colors');
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 const { hex2rgb } = require('./src/utils/convertions');
-
-function setRGBColors(name) {
-  const keys = Object.keys(colors[name]);
-  const newObject = {};
-
-  keys.forEach((key) => (newObject[key] = hex2rgb(colors[name][key])));
-
-  return { ...newObject };
-}
 
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],
@@ -73,11 +66,11 @@ module.exports = {
           foreground: 'rgb(var(--card-foreground) / <alpha-value>)'
         }
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 0.25rem)',
-        sm: 'calc(var(--radius) - 0.5rem)'
-      },
+      // borderRadius: {
+      //   lg: 'var(--radius)',
+      //   md: 'calc(var(--radius) - 0.25rem)',
+      //   sm: 'calc(var(--radius) - 0.5rem)'
+      // },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
@@ -91,8 +84,23 @@ module.exports = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out'
+      },
+      fontFamily: {
+        sans: ['Poppins', ...defaultTheme.fontFamily.sans]
+      },
+      boxShadow: {
+        DEFAULT: '6px 12px 4px 0 rgba(0, 0, 0, 0.25)'
       }
     }
   },
   plugins: [require('tailwindcss-animate')]
 };
+
+function setRGBColors(name) {
+  const keys = Object.keys(colors[name]);
+  const newObject = {};
+
+  keys.forEach((key) => (newObject[key] = hex2rgb(colors[name][key])));
+
+  return { ...newObject };
+}

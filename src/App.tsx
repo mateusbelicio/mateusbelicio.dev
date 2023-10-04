@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import MainLayout from './components/MainLayout';
 import Project from './pages/Project';
 
+import ThemeProvider from './contexts/ThemeContext';
+
 const routes: RouteObject[] = [
   {
     element: <MainLayout />,
@@ -17,7 +19,13 @@ const routes: RouteObject[] = [
 const router = createBrowserRouter(routes);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <ThemeProvider>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </>
+  );
 }
 
 export default App;
