@@ -12,7 +12,6 @@ import { Menu } from 'lucide-react';
 import { useScrollToAnchor } from '@/hooks/useScrollToAnchor';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
-import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 
 function Navigation() {

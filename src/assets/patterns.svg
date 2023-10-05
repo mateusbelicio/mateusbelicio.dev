@@ -1,0 +1,52 @@
+<svg width="0" height="0" class="hidden">
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" id="pattern-circle">
+    <g clip-path="url(#clip0_704_99)">
+      <rect opacity="0.25" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" y="24" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" y="24" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" y="24" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" y="24" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" y="48" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" y="48" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" y="48" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" y="48" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" y="72" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" y="72" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" y="72" width="16" height="16" rx="8" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" y="72" width="16" height="16" rx="8" fill="currentColor"></rect>
+    </g>
+    <defs>
+      <clipPath id="clip0_704_99">
+        <rect width="88" height="88" fill="white"></rect>
+      </clipPath>
+    </defs>
+  </symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" id="pattern-square">
+    <g clip-path="url(#clip0_704_116)">
+      <rect opacity="0.25" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" y="24" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" y="24" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" y="24" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" y="24" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" y="48" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" y="48" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" y="48" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" y="48" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" y="72" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="24" y="72" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="48" y="72" width="16" height="16" fill="currentColor"></rect>
+      <rect opacity="0.25" x="72" y="72" width="16" height="16" fill="currentColor"></rect>
+    </g>
+    <defs>
+      <clipPath id="clip0_704_116">
+        <rect width="88" height="88" fill="white"></rect>
+      </clipPath>
+    </defs>
+  </symbol>
+</svg>

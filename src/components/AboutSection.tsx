@@ -2,10 +2,10 @@ import { Briefcase, Clock } from 'lucide-react';
 
 function AboutSection() {
   return (
-    <section className="py-16">
-      <div className="container">
-        <div className="grid grid-cols-12 items-end gap-x-[1.875rem]">
-          <div className="col-span-6 space-y-5">
+    <section id="about" className="py-8 lg:py-16">
+      <div className="container text-center lg:text-left">
+        <div className="grid grid-cols-1 items-end justify-items-center gap-x-[1.875rem] gap-y-12 lg:grid-cols-12 lg:justify-items-start">
+          <div className="max-w-md space-y-5 lg:col-span-6">
             <h2 className="text-5xl font-bold leading-snug">Nice to meet you</h2>
             <p>
               Journey today timepoint alpha and. Long mifflin line both baked journey wiggle. Point
@@ -17,13 +17,13 @@ function AboutSection() {
               supervisor version sorry.
             </p>
           </div>
-          <ul className="col-span-4 col-start-8 flex flex-col gap-4 text-xl font-bold leading-normal">
-            <li className="flex items-center gap-4">
-              <Clock className="text-primary" />
+          <ul className="flex flex-col items-center gap-6 text-xl font-bold leading-normal lg:col-span-4 lg:col-start-8 lg:items-start lg:gap-4">
+            <li className="flex flex-col items-center gap-2 whitespace-nowrap lg:flex-row lg:gap-4">
+              <Clock className="flex-shrink-0 text-primary" />
               <p>1+ year of experience</p>
             </li>
-            <li className="flex items-center gap-4">
-              <Briefcase className="text-primary" />
+            <li className="flex flex-col items-center gap-2 whitespace-nowrap lg:flex-row lg:gap-4">
+              <Briefcase className="flex-shrink-0 text-primary" />
               <p>50+ projects</p>
             </li>
           </ul>

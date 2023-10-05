@@ -9,7 +9,7 @@ function Footer() {
       <div className="container flex items-center justify-between">
         <p className="flex items-center gap-4">
           <span>
-            <Copyright />
+            <Copyright width={16} height={16} />
           </span>
           <span>Mateus Belício {new Date().getFullYear()}</span>
         </p>

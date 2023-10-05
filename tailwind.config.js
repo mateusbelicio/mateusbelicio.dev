@@ -31,6 +31,9 @@ module.exports = {
       'noise-texture': "url('/src/assets/noise.png')"
     },
     extend: {
+      screens: {
+        lg: '940px'
+      },
       colors: {
         border: 'rgb(var(--border) / <alpha-value>)',
         input: 'rgb(var(--input) / <alpha-value>)',

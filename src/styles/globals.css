@@ -76,7 +76,7 @@
   }
 
   body {
-    @apply min-h-screen overflow-hidden bg-background bg-noise-texture font-sans text-base text-foreground antialiased;
+    @apply min-h-screen overflow-hidden bg-background bg-noise-texture font-sans text-base text-foreground antialiased selection:bg-border selection:text-accent-foreground;
   }
 
   p {
@@ -84,21 +84,14 @@
   }
 
   #root {
-    @apply h-screen scroll-pt-8 overflow-x-hidden overflow-y-scroll;
+    scrollbar-gutter: stable;
+
+    @apply h-screen scroll-pt-20 overflow-x-hidden overflow-y-scroll md:scroll-pt-8;
   }
 }
 
 @layer components {
-  .pattern-circle--before {
-    @apply before:absolute before:content-[url(/src/assets/pattern-circle.svg)];
-  }
-  .pattern-circle--after {
-    @apply after:absolute after:content-[url(/src/assets/pattern-circle.svg)];
-  }
-  .pattern-square--before {
-    @apply before:absolute before:content-[url(/src/assets/pattern-square.svg)];
-  }
-  .pattern-square--after {
-    @apply after:absolute after:content-[url(/src/assets/pattern-square.svg)];
+  .heading-1 {
+    @apply text-6xl font-bold leading-tight text-foreground;
   }
 }

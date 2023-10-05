@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Body Mass Index Calculator website",
+      "description": "A website developed taking as base the challenge of Frontend Mentor.",
+      "slug": "bmi-calculator",
+      "onlineUrl": "https://mateusbelicio.github.io/bmi-calculator/",
+      "tags": ["react", "framer-motion", "styled-components"],
+      "thumbnail": "/src/assets/preview-bmi-calculator.jpg",
+      "screenshot": "",
+      "about": [""],
+      "whatILearned": ""
+    },
+    {
+      "id": "2",
+      "title": "Art Gallery Website",
+      "description": "A website developed taking as base the challenge of Frontend Mentor.",
+      "slug": "art-gallery-website",
+      "onlineUrl": "https://mateusbelicio.github.io/art-gallery-website/",
+      "tags": ["react", "framer-motion", "tailwind-css", "react-router"],
+      "thumbnail": "/src/assets/preview-art-gallery.jpg",
+      "screenshot": "/src/assets/preview-art-gallery.jpg",
+      "about": [""],
+      "whatILearned": ""
+    },
+    {
+      "id": "3",
+      "title": "Clipboard Landing Page",
+      "description": "A website developed taking as base the challenge of Frontend Mentor.",
+      "slug": "clipboard-landing-page",
+      "onlineUrl": "https://mateusbelicio.github.io/clipboard-landing-page/",
+      "tags": ["html", "sass", "javascript", "css-animation"],
+      "thumbnail": "/src/assets/preview-clipboard.jpg",
+      "screenshot": "/src/assets/preview-clipboard.jpg",
+      "about": [""],
+      "whatILearned": ""
+    }
+  ]
+}
