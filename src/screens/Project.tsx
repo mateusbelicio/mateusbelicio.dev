@@ -1,20 +1,15 @@
-import { useParams } from 'react-router-dom';
+// import { useEffect, useState } from 'react';
+// import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
-import projectsData from '@/data/projects-content.json';
+// import projectsData from '@/lib/data/projects-content.json';
 import ProjectDetails from '@/components/ProjectDetails';
+import { useProjects } from '@/lib/hooks/useProjects';
 
 function Project() {
-  const { slug } = useParams();
-
-  const { projects } = projectsData;
-  const [currentProject] = projects?.filter((project) => project.slug === slug);
-
-  // const aboutArticle = Article({ title: 'About' });
-  // const learnArticle = Article({ title: 'What I learn' });
-  // const techArticle = Article({ title: 'Technologies used' });
+  const { currentProject } = useProjects();
 
   return (
     <main>

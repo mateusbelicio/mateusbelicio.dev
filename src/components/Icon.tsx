@@ -1,12 +1,12 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/mergeClass';
 import { HTMLAttributes } from 'react';
 
 interface IconProps extends HTMLAttributes<HTMLDivElement> {
   name: string;
   path: string;
-  color: string;
-  width: number;
-  height: number;
+  color?: string;
+  width?: number;
+  height?: number;
 }
 
 function Icon({ className, name, color, path, width, height, ...props }: IconProps) {

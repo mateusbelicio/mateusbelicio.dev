@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { useLocalStorage } from '@/lib/hooks/useLocalStorage';
 
 type ThemeContextValue = {
   theme: string;

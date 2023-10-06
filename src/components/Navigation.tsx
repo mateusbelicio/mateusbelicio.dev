@@ -9,8 +9,8 @@ import {
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 
-import { useScrollToAnchor } from '@/hooks/useScrollToAnchor';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useScrollToAnchor } from '@/lib/hooks/useScrollToAnchor';
+import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 
 import { Button } from './ui/button';
 

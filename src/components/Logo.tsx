@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import logoLight from '@/assets/logo-light.svg';
-import logoDark from '@/assets/logo-dark.svg';
+import logoLight from '@/assets/sprites/logo-light.svg';
+import logoDark from '@/assets/sprites/logo-dark.svg';
 
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/lib/contexts/ThemeContext';
 
 function Logo() {
   const { isDarkMode } = useTheme();

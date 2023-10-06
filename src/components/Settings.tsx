@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger
 } from './ui/dropdown-menu';
 import { Globe, Moon, Settings as SettingsIcon } from 'lucide-react';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTheme } from '@/lib/contexts/ThemeContext';
 import { Button } from './ui/button';
 
 function Settings() {

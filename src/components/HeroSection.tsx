@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 import Icon from './Icon';
 
-import profileImage from '@/assets/perfil.jpg';
-import pattern from '@/assets/patterns.svg';
+import profileImage from '@/assets/images/perfil.jpg';
+import pattern from '@/assets/sprites/patterns.svg';
 
 function HeroSection() {
   return (

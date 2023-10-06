@@ -28,7 +28,7 @@ module.exports = {
       }
     },
     backgroundImage: {
-      'noise-texture': "url('/src/assets/noise.png')"
+      'noise-texture': "url('/src/assets/images/noise.png')"
     },
     extend: {
       screens: {

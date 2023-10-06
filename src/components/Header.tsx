@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import Settings from './Settings';
 import Logo from './Logo';
 
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useMediaQuery } from '@/lib/hooks/useMediaQuery';
 
 function Header() {
   const matches = useMediaQuery('(min-width: 768px)');

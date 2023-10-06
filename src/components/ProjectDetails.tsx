@@ -7,7 +7,7 @@ import React, {
   useState
 } from 'react';
 import { useInView } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils/mergeClass';
 import { Link } from 'react-router-dom';
 
 const ProjectDetailsContext = createContext<any | null>(null);
@@ -27,7 +27,6 @@ function ProjectDetails({ children }: ProjectDetailsProps) {
     </ProjectDetailsContext.Provider>
   );
 }
-
 interface SectionProps {
   children: React.ReactNode;
   title: string;

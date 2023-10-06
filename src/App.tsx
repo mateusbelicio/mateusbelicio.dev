@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider, RouteObject, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-import Home from './pages/Home';
+import Home from './screens/Home';
 import MainLayout from './components/MainLayout';
-import Project from './pages/Project';
+import Project from './screens/Project';
 
-import ThemeProvider from './contexts/ThemeContext';
+import ThemeProvider from './lib/contexts/ThemeContext';
 
 const routes: RouteObject[] = [
   {

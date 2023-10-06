@@ -1,9 +1,10 @@
+import { useProjects } from '@/lib/hooks/useProjects';
 import ProjectCard from './ProjectCard';
 
-import projectsData from '@/data/projects-content.json';
+// import projectsData from '@/data/projects-content.json';
 
 function ProjectsSection() {
-  const { projects } = projectsData;
+  const { projects } = useProjects();
 
   return (
     <section className="py-40" id="projects">
