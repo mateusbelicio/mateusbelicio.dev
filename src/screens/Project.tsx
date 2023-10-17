@@ -1,15 +1,13 @@
-// import { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 
-import { AspectRatio } from '@/components/ui/aspect-ratio';
-
-// import projectsData from '@/lib/data/projects-content.json';
-import ProjectDetails from '@/components/ProjectDetails';
 import { useProjects } from '@/lib/hooks/useProjects';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import ProjectDetails from '@/components/ProjectDetails';
 
 function Project() {
   const { currentProject } = useProjects();
+  const container = useRef<HTMLDivElement>(null);
 
   return (
     <main>
@@ -32,101 +30,21 @@ function Project() {
 
         <ProjectDetails>
           <ProjectDetails.Navigation>
-            <ProjectDetails.NavigationLink href="about" id="about">
-              About
-            </ProjectDetails.NavigationLink>
-            <ProjectDetails.NavigationLink href="learn" id="learn">
-              What I learn
-            </ProjectDetails.NavigationLink>
-            <ProjectDetails.NavigationLink href="tech" id="tech">
-              Technologies used
-            </ProjectDetails.NavigationLink>
+            {currentProject.sections.map((section) => (
+              <ProjectDetails.NavigationLink key={section.id} id={section.id}>
+                {section.title}
+              </ProjectDetails.NavigationLink>
+            ))}
           </ProjectDetails.Navigation>
-          <ProjectDetails.Content title={currentProject?.title}>
-            <ProjectDetails.Section id="about" title="about">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eveniet!</p>
-            </ProjectDetails.Section>
 
-            <ProjectDetails.Section id="learn" title="What I learn">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eveniet!</p>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quod possimus earum?
-                Est tenetur vero id. A laudantium officia modi at. Optio, perspiciatis.
-              </p>
-            </ProjectDetails.Section>
-
-            <ProjectDetails.Section id="tech" title="Technologies used">
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat
-                ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident
-                mollitia magni impedit iusto explicabo enim doloremque consequuntur.
-              </p>
-            </ProjectDetails.Section>
+          <ProjectDetails.Content ref={container} title={currentProject?.title}>
+            {currentProject.sections.map((section) => (
+              <ProjectDetails.Section key={section.id} id={section.id} title={section.title}>
+                {section.content.split('\n').map((text) => (
+                  <p>{text}</p>
+                ))}
+              </ProjectDetails.Section>
+            ))}
           </ProjectDetails.Content>
         </ProjectDetails>
       </section>

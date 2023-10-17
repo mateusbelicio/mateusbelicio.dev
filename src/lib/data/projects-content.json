@@ -9,8 +9,18 @@
       "tags": ["react", "framer-motion", "styled-components"],
       "thumbnail": "/src/assets/images/preview-bmi-calculator.jpg",
       "screenshot": "/src/assets/images/preview-bmi-calculator.jpg",
-      "about": [""],
-      "whatILearned": ""
+      "sections": [
+        {
+          "id": "about",
+          "title": "about",
+          "content": "Neste projeto foram utilizados conceitos básicos de JavaScript para desenvolver um web app que calcula o IMC de acordo com o peso e a altura informada pelo o usuário.\n E além disso, são apresentadas outras informações a respeito do índice de massa corporal e como se cuidar."
+        },
+        {
+          "id": "tech",
+          "title": "technologies used",
+          "content": "para o desenvolvimento do projeto, foram utilizados:\n - React.js\n - Styled Components\n - Framer Motion"
+        }
+      ]
     },
     {
       "id": "2",
@@ -21,8 +31,23 @@
       "tags": ["react", "framer-motion", "tailwind-css", "react-router"],
       "thumbnail": "/src/assets/images/preview-art-gallery.jpg",
       "screenshot": "/src/assets/images/preview-art-gallery.jpg",
-      "about": [""],
-      "whatILearned": ""
+      "sections": [
+        {
+          "id": "about",
+          "title": "about",
+          "content": "Neste projeto foram utilizados conceitos básicos de JavaScript para desenvolver um web app que calcula o IMC de acordo com o peso e a altura informada pelo o usuário.\n E além disso, são apresentadas outras informações a respeito do índice de massa corporal e como se cuidar."
+        },
+        {
+          "id": "resources",
+          "title": "usefull resources",
+          "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?"
+        },
+        {
+          "id": "tech",
+          "title": "technologies used",
+          "content": "para o desenvolvimento do projeto, foram utilizados:\n - React.js\n - Styled Components\n - Framer Motion"
+        }
+      ]
     },
     {
       "id": "3",
@@ -33,8 +58,28 @@
       "tags": ["html", "sass", "javascript", "css-animation"],
       "thumbnail": "/src/assets/images/preview-clipboard.jpg",
       "screenshot": "/src/assets/images/preview-clipboard.jpg",
-      "about": [""],
-      "whatILearned": ""
+      "sections": [
+        {
+          "id": "about",
+          "title": "about",
+          "content": "Neste projeto foram utilizados conceitos básicos de JavaScript para desenvolver um web app que calcula o IMC de acordo com o peso e a altura informada pelo o usuário.\n E além disso, são apresentadas outras informações a respeito do índice de massa corporal e como se cuidar."
+        },
+        {
+          "id": "learn",
+          "title": "what I learn",
+          "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?\n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?"
+        },
+        {
+          "id": "resources",
+          "title": "usefull resources",
+          "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?"
+        },
+        {
+          "id": "tech",
+          "title": "technologies used",
+          "content": "para o desenvolvimento do projeto, foram utilizados:\n - React.js\n - Styled Components\n - Framer Motion"
+        }
+      ]
     }
   ]
 }
