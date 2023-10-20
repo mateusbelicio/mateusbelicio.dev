@@ -32,9 +32,26 @@ function ContactSection() {
     }
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    console.log(form);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const formData = {
+      service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      user_id: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      template_params: values
+    };
+
+    try {
+      await fetch(import.meta.env.VITE_EMAILJS_API_URL, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      form.reset();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -115,7 +132,7 @@ function ContactSection() {
                     type="submit"
                     disabled={!form.formState.isValid || form.formState.isSubmitting}
                   >
-                    Submit
+                    {form.formState.isSubmitting ? 'Submitting' : 'Submit'}
                   </Button>
                 </div>
               </form>
