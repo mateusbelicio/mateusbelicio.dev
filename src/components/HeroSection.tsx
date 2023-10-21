@@ -19,9 +19,9 @@ function HeroSection() {
             !
           </h1>
           <p className="max-w-lg">
-            Highlights start web cross-pollination working individual most work field line. Build
-            speed container reality land eye. Journey regroup talk we must resources needed got
-            disband banner.
+            With more than a year of development experience, I have great knowledge in web
+            development and my goal is to develop the most diverse types of websites that are fully
+            responsive, accessible and highly functional.
           </p>
           <div className="mt-4 flex gap-4">
             <Button asChild>

@@ -1,65 +1,30 @@
-import { useState } from 'react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuPortal,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger
-} from './ui/dropdown-menu';
-import { Globe, Moon, Settings as SettingsIcon } from 'lucide-react';
-import { useTheme } from '@/lib/contexts/ThemeContext';
+import { Moon, Sun } from 'lucide-react';
 import { Button } from './ui/button';
 
+import { useSettings } from '@/lib/hooks/useSettings';
+
+import brFlag from '@/assets/sprites/br.svg';
+import gbFlag from '@/assets/sprites/gb.svg';
+
 function Settings() {
-  const { theme, setTheme } = useTheme();
-  const [language, setLanguage] = useState('english');
+  const { theme, changeTheme, language, changeLanguage } = useSettings();
+
+  const handleTheme = () => changeTheme(theme === 'dark' ? 'light' : 'dark');
+  const handleLnaguage = () => changeLanguage(language === 'en' ? 'pt' : 'en');
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="navLink" size="icon" aria-label="settings" className="">
-          <SettingsIcon className="h-5 w-5" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent sideOffset={12} align="end" className="w-56">
-        <DropdownMenuGroup>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <Moon className="mr-2 h-4 w-4" />
-              <span>Theme</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuRadioGroup value={theme} onValueChange={setTheme}>
-                  <DropdownMenuRadioItem value="light">Light</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="dark">Dark</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="system">System</DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              <Globe className="mr-2 h-4 w-4" />
-              <span>Language</span>
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
-                  <DropdownMenuRadioItem value="english">English</DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="portuguese">Portuguese</DropdownMenuRadioItem>
-                </DropdownMenuRadioGroup>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-        </DropdownMenuGroup>
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <div className="flex items-center">
+      <Button variant="navLink" size="icon" aria-label="Change theme" onClick={handleTheme}>
+        {theme === 'dark' ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+      </Button>
+      <Button variant="navLink" size="icon" aria-label="Change language" onClick={handleLnaguage}>
+        {language === 'en' ? (
+          <img src={gbFlag} className="h-5 w-5 rounded-full" alt="Flag of United Kingdom" />
+        ) : (
+          <img src={brFlag} className="h-5 w-5 rounded-full" alt="Flag of Brazil" />
+        )}
+      </Button>
+    </div>
   );
 }
 

@@ -40,8 +40,8 @@ function Project() {
           <ProjectDetails.Content ref={container} title={currentProject?.title}>
             {currentProject.sections.map((section) => (
               <ProjectDetails.Section key={section.id} id={section.id} title={section.title}>
-                {section.content.split('\n').map((text) => (
-                  <p>{text}</p>
+                {section.content.split('\n').map((text, index) => (
+                  <p key={index}>{text}</p>
                 ))}
               </ProjectDetails.Section>
             ))}

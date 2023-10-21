@@ -35,7 +35,7 @@ interface SectionProps {
 
 function Section({ title, id, children }: SectionProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { margin: '0% 0px 0% 0px' });
+  const isInView = useInView(ref, { margin: '-45% 0px -45% 0px' });
   const { currentSectionInView, setCurrentSectionInView } = useContext(ProjectDetailsContext);
 
   useEffect(() => {

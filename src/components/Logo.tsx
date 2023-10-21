@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import logoLight from '@/assets/sprites/logo-light.svg';
 import logoDark from '@/assets/sprites/logo-dark.svg';
 
-import { useTheme } from '@/lib/contexts/ThemeContext';
+import { useAppSelector } from '@/lib/hooks/useAppRedux';
 
 function Logo() {
-  const { isDarkMode } = useTheme();
+  const { theme } = useAppSelector((state) => state.settings);
+  const isDarkMode = theme === 'dark' ? true : false;
 
   return (
     <Link

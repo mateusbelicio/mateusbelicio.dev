@@ -37,7 +37,7 @@
     --radius: 1rem;
   }
 
-  [data-theme='dark'] {
+  html[data-theme='dark'] {
     --background: theme(colorsRGBValues.zinc.950);
     --foreground: theme(colorsRGBValues.zinc.50);
 

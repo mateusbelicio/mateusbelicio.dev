@@ -3,7 +3,7 @@
 const colors = require('tailwindcss/colors');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
-const { hex2rgb } = require('./src/utils/convertions');
+const { hex2rgb } = require('./src/lib/utils/convertColor');
 
 module.exports = {
   darkMode: ['class', '[data-theme="dark"]'],

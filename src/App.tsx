@@ -1,11 +1,12 @@
 import { createBrowserRouter, RouterProvider, RouteObject, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Provider } from 'react-redux';
 
 import Home from './screens/Home';
 import MainLayout from './components/MainLayout';
 import Project from './screens/Project';
 
-import ThemeProvider from './lib/contexts/ThemeContext';
+import store from './lib/stores/store';
 
 const routes: RouteObject[] = [
   {
@@ -22,13 +23,11 @@ const router = createBrowserRouter(routes);
 
 function App() {
   return (
-    <>
-      <ThemeProvider>
-        <AnimatePresence>
-          <RouterProvider router={router} />
-        </AnimatePresence>
-      </ThemeProvider>
-    </>
+    <Provider store={store}>
+      <AnimatePresence>
+        <RouterProvider router={router} />
+      </AnimatePresence>
+    </Provider>
   );
 }
 
