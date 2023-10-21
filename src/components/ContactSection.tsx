@@ -7,6 +7,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from './ui/input';
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from './ui/sheet';
 import { Textarea } from './ui/textarea';
+import { useAppSelector } from '@/lib/hooks/useAppRedux';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -23,6 +24,8 @@ const formSchema = z.object({
 });
 
 function ContactSection() {
+  const { contact } = useAppSelector((state) => state.content);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -61,11 +64,11 @@ function ContactSection() {
           <div className="flex flex-col items-center gap-5">
             <SheetTrigger asChild>
               <Button size="lg" rounded="full">
-                Let's chat
+                {contact.cta}
               </Button>
             </SheetTrigger>
             <p className="relative flex items-start gap-4 text-center before:absolute before:left-0 before:top-1/2 before:hidden before:h-4 before:w-4 before:flex-shrink-0 before:-translate-x-[200%] before:-translate-y-1/2 before:rounded-full before:bg-emerald-500 sm:before:block">
-              Available for projects for October 2023 and beyond
+              {contact.paragraph}
             </p>
           </div>
 
@@ -77,9 +80,9 @@ function ContactSection() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Your Name</FormLabel>
+                      <FormLabel>{contact.nameLabel}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Jhon Doe" {...field} />
+                        <Input placeholder={contact.namePlaceholder} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -90,9 +93,9 @@ function ContactSection() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>{contact.emailLabel}</FormLabel>
                       <FormControl>
-                        <Input placeholder="jhon@doe.com" {...field} />
+                        <Input placeholder={contact.emailPlaceholder} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -103,12 +106,12 @@ function ContactSection() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Message</FormLabel>
+                      <FormLabel>{contact.messageLabel}</FormLabel>
                       <FormControl>
                         <Textarea
                           className="h-[35ch] resize-none"
                           maxLength={500}
-                          placeholder="Some message..."
+                          placeholder={contact.messagePlaceholder}
                           {...field}
                         />
                       </FormControl>
@@ -125,14 +128,14 @@ function ContactSection() {
                       variant="secondary"
                       disabled={form.formState.isSubmitting}
                     >
-                      Cancel
+                      {contact.cancel}
                     </Button>
                   </SheetClose>
                   <Button
                     type="submit"
                     disabled={!form.formState.isValid || form.formState.isSubmitting}
                   >
-                    {form.formState.isSubmitting ? 'Submitting' : 'Submit'}
+                    {form.formState.isSubmitting ? contact.submitting : contact.submit}
                   </Button>
                 </div>
               </form>

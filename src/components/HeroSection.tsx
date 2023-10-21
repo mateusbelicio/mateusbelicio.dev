@@ -5,30 +5,29 @@ import Icon from './Icon';
 
 import profileImage from '@/assets/images/perfil.jpg';
 import pattern from '@/assets/sprites/patterns.svg';
+import { useAppSelector } from '@/lib/hooks/useAppRedux';
 
 function HeroSection() {
+  const { blurb, alt } = useAppSelector((state) => state.content);
+
   return (
     <section className="pb-16 pt-20 md:pb-20 md:pt-40">
       <div className="container grid gap-20 md:grid-cols-2">
         <div className="flex flex-col items-start gap-4 md:row-span-2 md:row-start-1 lg:row-span-1 ">
           <h1 className="heading-1">
-            Hi, I&rsquo;m{' '}
+            {blurb.title}{' '}
             <span className="relative before:absolute before:bottom-2 before:h-1 before:w-full before:bg-primary">
               Mateus
             </span>
             !
           </h1>
-          <p className="max-w-lg">
-            With more than a year of development experience, I have great knowledge in web
-            development and my goal is to develop the most diverse types of websites that are fully
-            responsive, accessible and highly functional.
-          </p>
+          <p className="max-w-lg">{blurb.paragraph}</p>
           <div className="mt-4 flex gap-4">
             <Button asChild>
-              <Link to="/#contact">Let&rsquo;s talk</Link>
+              <Link to="/#contact">{blurb.cta}</Link>
             </Button>
             <Button asChild variant="ghost">
-              <Link to="/#projects">or see more below</Link>
+              <Link to="/#projects">{blurb.more}</Link>
             </Button>
           </div>
         </div>
@@ -54,7 +53,7 @@ function HeroSection() {
             <div className="relative flex h-full w-full items-start justify-center overflow-hidden rounded-lg">
               <img
                 src={profileImage}
-                alt="Photo of Mateus Belício"
+                alt={alt.selfie}
                 className="-mt-4 max-w-none object-cover object-center"
               />
             </div>

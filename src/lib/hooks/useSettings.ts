@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import * as settingsSlice from '@/lib/stores/settingsSlice';
+import * as contentSlice from '@/lib/stores/contentSlice';
 import type { SettingsType } from '@/lib/stores/settingsSlice';
 
 import { useLocalStorage } from './useLocalStorage';
@@ -11,6 +12,28 @@ export function useSettings() {
   const { theme, language } = useAppSelector((state) => state.settings);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    if (!settings || !('settings' in localStorage)) {
+      const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const userLanguage = navigator.language.startsWith('pt') ? 'pt' : 'en';
+
+      const defaultSettings: SettingsType = {
+        theme: userPrefersDark ? 'dark' : 'light',
+        language: userLanguage
+      };
+
+      dispatch(settingsSlice.loadSettings(defaultSettings));
+      dispatch(contentSlice.toggleContent(userLanguage));
+    } else {
+      dispatch(settingsSlice.loadSettings(settings));
+    }
+  }, []);
+
+  useEffect(() => {
+    setSettings({ theme, language });
+    dispatch(contentSlice.toggleContent(language));
+  }, [theme, language]);
+
   function changeTheme(value: string) {
     if (value === 'dark') dispatch(settingsSlice.updateTheme('dark'));
     else dispatch(settingsSlice.updateTheme('light'));
@@ -20,25 +43,6 @@ export function useSettings() {
     if (value === 'pt') dispatch(settingsSlice.updateLanguage('pt'));
     else dispatch(settingsSlice.updateLanguage('en'));
   }
-
-  useEffect(() => {
-    if (!settings || !('settings' in localStorage)) {
-      const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-      const defaultSettings: SettingsType = {
-        theme: userPrefersDark ? 'dark' : 'light',
-        language: 'en'
-      };
-
-      dispatch(settingsSlice.loadSettings(defaultSettings));
-    } else {
-      dispatch(settingsSlice.loadSettings(settings));
-    }
-  }, []);
-
-  useEffect(() => {
-    setSettings({ theme, language });
-  }, [theme, language]);
 
   return {
     theme,

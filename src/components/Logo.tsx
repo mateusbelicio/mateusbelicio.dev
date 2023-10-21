@@ -7,6 +7,7 @@ import { useAppSelector } from '@/lib/hooks/useAppRedux';
 
 function Logo() {
   const { theme } = useAppSelector((state) => state.settings);
+  const { alt } = useAppSelector((state) => state.content);
   const isDarkMode = theme === 'dark' ? true : false;
 
   return (
@@ -14,7 +15,7 @@ function Logo() {
       className="mr-auto block h-full flex-shrink-0 select-none space-x-1 rounded-sm px-3 py-1 leading-none text-background no-underline outline-none transition-colors hover:text-accent-foreground focus:text-accent-foreground focus-visible:outline focus-visible:outline-1 focus-visible:outline-accent-foreground"
       to="/#"
     >
-      <img src={isDarkMode ? logoLight : logoDark} alt="Mateus Belicio Developer logo" />
+      <img src={isDarkMode ? logoLight : logoDark} alt={alt.logo} />
     </Link>
   );
 }

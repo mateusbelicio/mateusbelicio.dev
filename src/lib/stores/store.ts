@@ -1,7 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import settingsReducer from './settingsSlice';
 
-const store = configureStore({ reducer: { settings: settingsReducer } });
+import settingsReducer from './settingsSlice';
+import contentReducer from './contentSlice';
+
+const store = configureStore({
+  reducer: {
+    settings: settingsReducer,
+    content: contentReducer
+  }
+});
 
 export default store;
 
