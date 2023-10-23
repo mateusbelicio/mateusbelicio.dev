@@ -15,7 +15,7 @@ function HeroSection() {
       <div className="container grid gap-20 md:grid-cols-2">
         <div className="flex flex-col items-start gap-4 md:row-span-2 md:row-start-1 lg:row-span-1 ">
           <h1 className="heading-1">
-            {blurb.title}{' '}
+            {blurb.title} <br />
             <span className="relative before:absolute before:bottom-2 before:h-1 before:w-full before:bg-primary">
               Mateus
             </span>
@@ -33,7 +33,7 @@ function HeroSection() {
         </div>
         <div className="relative self-start justify-self-center md:row-span-2 md:row-start-2 lg:col-start-2 lg:row-span-1 lg:row-start-1">
           <Icon
-            className="absolute -left-9 top-11 -z-10"
+            className="absolute -left-9 top-11 -z-10 animate-pulse"
             path={pattern}
             name="pattern-circle"
             color="accent"

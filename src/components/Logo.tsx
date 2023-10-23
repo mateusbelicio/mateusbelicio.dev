@@ -6,8 +6,10 @@ import logoDark from '@/assets/sprites/logo-dark.svg';
 import { useAppSelector } from '@/lib/hooks/useAppRedux';
 
 function Logo() {
-  const { theme } = useAppSelector((state) => state.settings);
-  const { alt } = useAppSelector((state) => state.content);
+  const {
+    settings: { theme },
+    content: { alt }
+  } = useAppSelector((state) => state);
   const isDarkMode = theme === 'dark' ? true : false;
 
   return (

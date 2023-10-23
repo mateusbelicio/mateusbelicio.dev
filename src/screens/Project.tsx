@@ -4,10 +4,21 @@ import { motion } from 'framer-motion';
 import { useProjects } from '@/lib/hooks/useProjects';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import ProjectDetails from '@/components/ProjectDetails';
+import { useLoaderData, useParams } from 'react-router-dom';
 
 function Project() {
   const { currentProject } = useProjects();
+  const { slug } = useParams();
+  const data = useLoaderData();
   const container = useRef<HTMLDivElement>(null);
+
+  console.log(data);
+
+  return (
+    <main>
+      <section>section</section>
+    </main>
+  );
 
   return (
     <main>

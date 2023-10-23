@@ -7,6 +7,7 @@ import MainLayout from './components/MainLayout';
 import Project from './screens/Project';
 
 import store from './lib/stores/store';
+import { getProjectData } from './lib/utils/projects';
 
 const routes: RouteObject[] = [
   {
@@ -14,7 +15,11 @@ const routes: RouteObject[] = [
     children: [
       { path: '/', element: <Home /> },
       { path: '/projects', element: <Navigate to="/#projects" replace={true} /> },
-      { path: '/projects/:slug', element: <Project /> }
+      {
+        path: '/projects/:slug',
+        element: <Project />,
+        loader: async ({ params }) => await getProjectData(params.slug || '')
+      }
     ]
   }
 ];
