@@ -1,0 +1,85 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Body Mass Index Calculator website",
+      "description": "A website developed taking as base the challenge of Frontend Mentor.",
+      "slug": "bmi-calculator",
+      "onlineUrl": "https://mateusbelicio.github.io/bmi-calculator/",
+      "tags": ["react", "framer-motion", "styled-components"],
+      "thumbnail": "/images/preview-bmi-calculator.jpg",
+      "screenshot": "/images/preview-bmi-calculator.jpg",
+      "sections": [
+        {
+          "id": "about",
+          "title": "about",
+          "content": "Neste projeto foram utilizados conceitos básicos de JavaScript para desenvolver um web app que calcula o IMC de acordo com o peso e a altura informada pelo o usuário.\n E além disso, são apresentadas outras informações a respeito do índice de massa corporal e como se cuidar."
+        },
+        {
+          "id": "tech",
+          "title": "technologies used",
+          "content": "para o desenvolvimento do projeto, foram utilizados:\n - React.js\n - Styled Components\n - Framer Motion"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Art Gallery Website",
+      "description": "A website developed taking as base the challenge of Frontend Mentor.",
+      "slug": "art-gallery-website",
+      "onlineUrl": "https://mateusbelicio.github.io/art-gallery-website/",
+      "tags": ["react", "framer-motion", "tailwind-css", "react-router"],
+      "thumbnail": "/images/preview-art-gallery.jpg",
+      "screenshot": "/images/preview-art-gallery.jpg",
+      "sections": [
+        {
+          "id": "about",
+          "title": "about",
+          "content": "Neste projeto foram utilizados conceitos básicos de JavaScript para desenvolver um web app que calcula o IMC de acordo com o peso e a altura informada pelo o usuário.\n E além disso, são apresentadas outras informações a respeito do índice de massa corporal e como se cuidar."
+        },
+        {
+          "id": "resources",
+          "title": "usefull resources",
+          "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?"
+        },
+        {
+          "id": "tech",
+          "title": "technologies used",
+          "content": "para o desenvolvimento do projeto, foram utilizados:\n - React.js\n - Styled Components\n - Framer Motion"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Clipboard Landing Page",
+      "description": "A website developed taking as base the challenge of Frontend Mentor.",
+      "slug": "clipboard-landing-page",
+      "onlineUrl": "https://mateusbelicio.github.io/clipboard-landing-page/",
+      "tags": ["html", "sass", "javascript", "css-animation"],
+      "thumbnail": "/images/preview-clipboard.jpg",
+      "screenshot": "/images/preview-clipboard.jpg",
+      "sections": [
+        {
+          "id": "about",
+          "title": "about",
+          "content": "Neste projeto foram utilizados conceitos básicos de JavaScript para desenvolver um web app que calcula o IMC de acordo com o peso e a altura informada pelo o usuário.\n E além disso, são apresentadas outras informações a respeito do índice de massa corporal e como se cuidar."
+        },
+        {
+          "id": "learn",
+          "title": "what I learn",
+          "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?\n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?"
+        },
+        {
+          "id": "resources",
+          "title": "usefull resources",
+          "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima? Repellat ipsam, omnis qui facere esse quibusdam minus voluptate accusantium a quam provident mollitia magni impedit iusto explicabo enim doloremque consequuntur. \n Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum, minima?"
+        },
+        {
+          "id": "tech",
+          "title": "technologies used",
+          "content": "para o desenvolvimento do projeto, foram utilizados:\n - React.js\n - Styled Components\n - Framer Motion"
+        }
+      ]
+    }
+  ]
+}
