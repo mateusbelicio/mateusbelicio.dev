@@ -1,4 +1,5 @@
 import {
+  AlertTriangle,
   Briefcase,
   Clock4Icon,
   Copyright,
@@ -47,6 +48,7 @@ export const Icons = {
   menu: Menu,
   linkedin: Linkedin,
   github: Github,
+  warning: AlertTriangle,
   work: Briefcase,
   clock: Clock4Icon,
   copy: Copyright,

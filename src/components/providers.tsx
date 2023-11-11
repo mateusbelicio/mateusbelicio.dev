@@ -6,7 +6,7 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 
 import { i18n, Locale } from '@/config/i18n.config';
-import { useLocalStorage } from '@/lib/hooks/useLocalStorage';
+import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 /*
 |--------------------------------------------------

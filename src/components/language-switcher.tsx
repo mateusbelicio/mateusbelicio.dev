@@ -1,31 +1,28 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next-intl/client';
 
 import { getDictionaryClientSide } from '@/lib/dictionaries/default-dictionary-client-side';
-import { useLanguage } from '@/lib/hooks/useLanguage';
+import { useLanguage } from '@/hooks/useLanguage';
+import { useMounted } from '@/hooks/useMounted';
 
 import { Button } from './ui/button';
 
 function LanguageSwitcher() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const pathname = usePathname();
   const router = useRouter();
   const { language, setLanguage } = useLanguage();
-  const alt = useRef(getDictionaryClientSide(language).alt);
 
-  const label = `${alt.current.changeLanguage} ${
-    language === 'en' ? alt.current.langPt : alt.current.langEn
-  }`;
+  const { alt } = getDictionaryClientSide(language);
+  const label = `${alt.changeLanguage} ${language === 'en' ? alt.langPt : alt.langEn}`;
 
   useEffect(() => {
-    if (!mounted) return setMounted(true);
-    if (!language) return;
+    if (!language && !mounted) return;
 
     router.replace(pathname, { locale: language });
-    alt.current = getDictionaryClientSide(language).alt;
   }, [language]);
 
   function toggleLanguage() {
@@ -39,7 +36,7 @@ function LanguageSwitcher() {
     <Button variant="ghost" size="icon" aria-label={label} onClick={toggleLanguage}>
       <Image
         src={language === 'en' ? '/sprites/gb.svg' : '/sprites/br.svg'}
-        alt={alt.current.flag}
+        alt={alt.flag}
         width={40}
         height={40}
         className="h-6 w-6 rounded-full"

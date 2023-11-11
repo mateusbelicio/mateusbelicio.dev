@@ -75,7 +75,12 @@ export default async function RootLayout({
 }) {
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
+      <body
+        className={cn(
+          'flex min-h-screen flex-col bg-background font-sans antialiased',
+          fontSans.variable
+        )}
+      >
         <Providers>
           {children}
           <Toaster />

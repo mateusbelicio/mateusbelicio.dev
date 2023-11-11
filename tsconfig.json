@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom","dom.iterable","esnext"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "baseUrl": ".",
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -16,6 +17,7 @@
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./src/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"],
       "~/*": ["./*"]
     }
   },
@@ -24,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    ".contentlayer/generated"
   ],
   "exclude": ["node_modules"]
 }

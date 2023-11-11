@@ -1,18 +1,18 @@
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
 
-interface HomeLayoutProps {
+interface ProjectLayoutProps {
   children: React.ReactNode;
 }
 
-function HomeLayout({ children }: HomeLayoutProps) {
+function ProjectLayout({ children }: ProjectLayoutProps) {
   return (
     <>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex flex-1 items-center">{children}</main>
       <Footer />
     </>
   );
 }
 
-export default HomeLayout;
+export default ProjectLayout;

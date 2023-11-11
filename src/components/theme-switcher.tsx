@@ -1,17 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTheme } from 'next-themes';
+
+import { useMounted } from '@/hooks/useMounted';
 
 import { Icons } from './icons';
 import { Button } from './ui/button';
 
 export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
 
   useEffect(() => {
-    setMounted(true);
     if (mounted && resolvedTheme) setTheme(resolvedTheme);
   }, [mounted]);
 

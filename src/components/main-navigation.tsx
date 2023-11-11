@@ -30,7 +30,7 @@ function MainNavigation({ items, children }: MainNavigationProps) {
         href="/"
         className={cn(
           buttonVariants({ variant: 'ghost', size: 'icon' }),
-          'flex h-auto w-auto items-center rounded-sm'
+          'flex h-10 w-10 items-center rounded-sm'
         )}
       >
         <Icons.logo width={32} height={32} />
