@@ -3,17 +3,20 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { allProjects, Project } from 'contentlayer/generated';
 
+import { Locale } from '@/config/i18n.config';
 import { absoluteUrl } from '@/lib/utils';
 import { MDXContent } from '@/components/mdx-components';
 
-type Params = { slug: string[] };
-
+type Params = {
+  locale: Locale;
+  slug: string[];
+};
 interface ProjectPageProps {
   params: Params;
 }
 
 async function getProjectFromParams(params: Params) {
-  const slug = params.slug?.join('/') || '';
+  const slug = !params.slug ? params.locale : `${params.locale}/${params.slug?.join('/')}`;
   const project: Project | undefined = allProjects.find((project) => project.slugAsParams === slug);
 
   if (!project) null;
@@ -59,26 +62,27 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
-export async function generateStaticParams(): Promise<ProjectPageProps['params'][]> {
-  return allProjects.map((project) => ({
-    slug: project.slugAsParams.split('/'),
-  }));
-}
-
 async function ProjectPage({ params }: ProjectPageProps) {
   const project = await getProjectFromParams(params);
 
   if (!project) notFound();
 
+  let date;
+  if (project.date) date = new Date(project?.date);
+
   return (
-    <article>
-      <div>
-        <time dateTime={project?.date} className="text-xs font-bold uppercase text-blue-600"></time>
+    <section className="py-10">
+      <div className="container">
+        <time dateTime={project?.date} className="text-xs font-bold uppercase text-blue-600">
+          {date?.toLocaleString('pt-BR', { month: 'long', year: 'numeric', day: '2-digit' })}
+        </time>
+        <h1 className="mt-2 scroll-m-20 text-4xl font-bold tracking-tight">{project.title}</h1>
+        <p>{project?.description}</p>
+        <article className="mt-8 border-t border-border pt-8">
+          <MDXContent code={project.body.code} />
+        </article>
       </div>
-      <h1>{project.title}</h1>
-      <p>{project?.description}</p>
-      <MDXContent code={project.body.code} />
-    </article>
+    </section>
   );
 }
 

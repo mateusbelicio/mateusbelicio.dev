@@ -9,7 +9,7 @@ function ProjectLayout({ children }: ProjectLayoutProps) {
   return (
     <>
       <Header />
-      <main className="flex flex-1 items-center">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </>
   );
