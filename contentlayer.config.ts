@@ -17,7 +17,7 @@ const computedFields: ComputedFields = {
 
 const Project = defineDocumentType(() => ({
   name: 'Project',
-  filePathPattern: `/projects/**/*.mdx`,
+  filePathPattern: `projects/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
@@ -29,7 +29,7 @@ const Project = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: './src/content',
+  contentDirPath: 'src/content',
   documentTypes: [Project],
   mdx: {
     remarkPlugins: [remarkGfm],
@@ -38,7 +38,7 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark',
+          theme: { dark: 'github-dark' },
           onVisitLine(element) {
             if (element.children.length === 0) element.children = [{ type: 'text', value: ' ' }];
           },
@@ -48,13 +48,15 @@ export default makeSource({
           onVisitHighlightedChars(element, id) {
             element.properties.className = ['word--highlighted'];
           },
-        } satisfies PrettyCodeOptions,
+        } satisfies Partial<PrettyCodeOptions>,
       ],
       [
         rehypeAutolinkHeadings,
         {
+          behavior: 'append',
+          test: ['h2', 'h3'],
           properties: { className: ['subheading-anchor'], ariaLabel: 'Link to section' },
-        } satisfies AutolinkOptions,
+        } satisfies Partial<AutolinkOptions>,
       ],
     ],
   },

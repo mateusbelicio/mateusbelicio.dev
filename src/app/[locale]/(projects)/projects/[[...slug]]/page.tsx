@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { allProjects, Project } from 'contentlayer/generated';
 
 import { absoluteUrl } from '@/lib/utils';
+import { MDXContent } from '@/components/mdx-components';
 
 type Params = { slug: string[] };
 
@@ -68,7 +70,16 @@ async function ProjectPage({ params }: ProjectPageProps) {
 
   if (!project) notFound();
 
-  return <div>Project</div>;
+  return (
+    <article>
+      <div>
+        <time dateTime={project?.date} className="text-xs font-bold uppercase text-blue-600"></time>
+      </div>
+      <h1>{project.title}</h1>
+      <p>{project?.description}</p>
+      <MDXContent code={project.body.code} />
+    </article>
+  );
 }
 
 export default ProjectPage;

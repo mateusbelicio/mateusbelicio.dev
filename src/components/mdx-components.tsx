@@ -117,7 +117,7 @@ interface MdxProps {
   code: string;
 }
 
-export function Mdx({ code }: MdxProps) {
+export function MDXContent({ code }: MdxProps) {
   const Component = useMDXComponent(code);
 
   return (

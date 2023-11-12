@@ -40,6 +40,7 @@ const LogoIcon = ({ ...props }: LucideProps) => {
 
 export const Icons = {
   logo: LogoIcon,
+  loader: Loader2,
   close: X,
   spinner: Loader2,
   sun: SunMedium,
