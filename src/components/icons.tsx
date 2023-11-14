@@ -1,5 +1,6 @@
 import {
   AlertTriangle,
+  ArrowLeft,
   Briefcase,
   Clock4Icon,
   Copyright,
@@ -39,18 +40,19 @@ const LogoIcon = ({ ...props }: LucideProps) => {
 };
 
 export const Icons = {
-  logo: LogoIcon,
-  loader: Loader2,
+  back: ArrowLeft,
+  clock: Clock4Icon,
   close: X,
+  copy: Copyright,
+  github: Github,
+  linkedin: Linkedin,
+  loader: Loader2,
+  logo: LogoIcon,
+  menu: Menu,
+  moon: Moon,
   spinner: Loader2,
   sun: SunMedium,
-  moon: Moon,
   user: User2,
-  menu: Menu,
-  linkedin: Linkedin,
-  github: Github,
   warning: AlertTriangle,
   work: Briefcase,
-  clock: Clock4Icon,
-  copy: Copyright,
 };

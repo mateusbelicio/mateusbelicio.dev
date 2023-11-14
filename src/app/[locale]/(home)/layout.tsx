@@ -9,7 +9,7 @@ function HomeLayout({ children }: HomeLayoutProps) {
   return (
     <>
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="relative flex-1">{children}</main>
       <Footer />
     </>
   );

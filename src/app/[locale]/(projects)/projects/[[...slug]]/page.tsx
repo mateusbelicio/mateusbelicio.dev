@@ -1,10 +1,13 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { allProjects, Project } from 'contentlayer/generated';
 
 import { Locale } from '@/config/i18n.config';
-import { absoluteUrl } from '@/lib/utils';
+import { absoluteUrl, cn } from '@/lib/utils';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Icons } from '@/components/icons';
 import { MDXContent } from '@/components/mdx-components';
 
 type Params = {
@@ -73,11 +76,25 @@ async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <section className="py-10">
       <div className="container">
-        <time dateTime={project?.date} className="text-xs font-bold uppercase text-blue-600">
-          {date?.toLocaleString('pt-BR', { month: 'long', year: 'numeric', day: '2-digit' })}
-        </time>
-        <h1 className="mt-2 scroll-m-20 text-4xl font-bold tracking-tight">{project.title}</h1>
-        <p>{project?.description}</p>
+        <Link
+          href="/projects"
+          className={cn(buttonVariants({ variant: 'outline' }), 'inline-flex gap-2')}
+        >
+          <Icons.back size={16} /> Back
+        </Link>
+        <div className="mt-4 flex items-end justify-between">
+          <div>
+            <h1 className="mt-2 scroll-m-20 text-4xl font-bold tracking-tight">{project.title}</h1>
+            <p>{project?.description}</p>
+          </div>
+          <time dateTime={project?.date} className="text-xs font-bold uppercase text-blue-600">
+            {date?.toLocaleString(params.locale, {
+              month: 'long',
+              year: 'numeric',
+              day: '2-digit',
+            })}
+          </time>
+        </div>
         <article className="mt-8 border-t border-border pt-8">
           <MDXContent code={project.body.code} />
         </article>
