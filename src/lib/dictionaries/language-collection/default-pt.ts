@@ -7,11 +7,9 @@ export const ptBR = {
     contact: 'Contato',
   },
   blurb: {
-    title: 'Oi, Eu sou o',
+    title: 'Olá, meu nome é Mateus Belício e adoro construir lindos websites',
     cta: 'Vamos conversar',
     more: 'ou veja mais abaixo',
-    paragraph:
-      'Com mais de um ano de experiência em desenvolvimento, possuo grande conhecimento em desenvolvimento web e meu objetivo é desenvolver os mais diversos tipos de sites que sejam totalmente responsivos, acessíveis e altamente funcionais.',
   },
   about: {
     title: 'Prazer em conhecê-lo',

@@ -11,15 +11,12 @@ module.exports = {
     './content/**/*.{md,mdx}',
   ],
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        xl: '1110px',
-      },
-    },
     backgroundImage: { 'noise-texture': "url('/images/noise.png')" },
     extend: {
+      fontSize: {
+        '3xl': ['2rem', '2.625rem'],
+        '5xl': ['2.5rem', '2.625rem'],
+      },
       screens: { lg: '940px' },
       colors: {
         border: 'hsl(var(--border))',
@@ -75,7 +72,7 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
+        serif: ['var(--font-serif)', ...fontFamily.serif],
       },
       boxShadow: {
         DEFAULT: '6px 12px 4px 0 rgba(0, 0, 0, 0.25)',

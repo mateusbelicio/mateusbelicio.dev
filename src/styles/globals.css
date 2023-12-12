@@ -73,19 +73,43 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  html {
+    @apply h-full min-w-[20rem] scroll-smooth;
   }
+
   body {
-    @apply min-h-screen min-w-[22rem] overflow-x-hidden bg-background bg-noise-texture font-sans text-base text-foreground antialiased selection:bg-border selection:text-accent-foreground;
+    @apply min-h-full min-w-[22rem] overflow-x-hidden bg-background bg-noise-texture font-sans text-base text-foreground antialiased transition-colors duration-500 selection:bg-border selection:text-accent-foreground;
   }
+
   p {
     @apply font-light leading-relaxed text-secondary-foreground;
   }
 }
 
-@layer components {
+@layer utilities {
+  .main-container {
+    @apply mx-auto box-content max-w-[69.375rem] px-8 sm:px-10;
+  }
+
+  .main-grid {
+    @apply grid sm:grid-cols-12 sm:gap-x-2.5 lg:gap-x-[1.875rem] [&>*]:col-span-full;
+  }
+
+  .heading-1,
+  .heading-2,
+  .heading-3 {
+    @apply font-serif font-bold -tracking-[0.009em] text-foreground;
+  }
+
   .heading-1 {
-    @apply text-6xl font-bold leading-tight text-foreground;
+    @apply text-5xl lg:text-[3.125rem] lg:leading-none;
+  }
+
+  .heading-2 {
+    @apply text-5xl;
+  }
+
+  .heading-3 {
+    @apply text-3xl font-normal;
   }
 }

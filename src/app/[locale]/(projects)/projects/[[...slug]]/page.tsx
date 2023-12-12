@@ -75,7 +75,7 @@ async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <section className="py-10">
-      <div className="container">
+      <div className="main-container">
         <Link
           href="/projects"
           className={cn(buttonVariants({ variant: 'outline' }), 'inline-flex gap-2')}

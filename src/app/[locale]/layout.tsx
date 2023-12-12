@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Ibarra_Real_Nova } from 'next/font/google';
 
 import '@/styles/globals.css';
 
@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils';
 import { Toaster } from '@/components/ui/toaster';
 import Providers from '@/components/providers';
 
-const fontSans = Roboto({
+const fontSerif = Ibarra_Real_Nova({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700', '900'],
-  variable: '--font-sans',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
@@ -78,7 +78,7 @@ export default async function RootLayout({
       <body
         className={cn(
           'flex min-h-screen flex-col bg-background font-sans antialiased',
-          fontSans.variable
+          fontSerif.variable
         )}
       >
         <Providers>

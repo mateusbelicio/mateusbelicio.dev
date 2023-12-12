@@ -7,11 +7,9 @@ export const enUS = {
     contact: 'Contact',
   },
   blurb: {
-    title: "Hi, I'm",
+    title: 'Hey, I’m Mateus Belício and I love building beautiful websites',
     cta: "Let's talk",
     more: 'or see more below',
-    paragraph:
-      'With more than a year of development experience, I have great knowledge in web development and my goal is to develop the most diverse types of websites that are fully responsive, accessible and highly functional.',
   },
   about: {
     title: 'Nice to meet you',
