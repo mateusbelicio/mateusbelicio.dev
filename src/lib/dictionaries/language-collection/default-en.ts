@@ -12,11 +12,10 @@ export const enUS = {
     more: 'or see more below',
   },
   about: {
-    title: 'Nice to meet you',
-    description: [
-      'Journey today timepoint alpha and. Long mifflin line both baked journey wiggle. Point breakout land pain give.',
-      'Web for goto domains per. Across race tomorrow circle cta tomorrow users create. Algorithm low-hanging principles should in. Eat game cross obviously devil the emails supervisor version sorry.',
-    ],
+    title: 'About me',
+    description:
+      'I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or cycling. I’d love you to check out my work.',
+    buttonLabel: 'Go to portfolio',
     status: [
       {
         id: 'experience',
@@ -42,10 +41,13 @@ export const enUS = {
   },
   email: 'mateusbelicio.dev@gamil.com',
   skipToContent: 'Skip to content',
+  cta: {
+    title: 'Interested in doing a project together?',
+    buttonLabel: 'Contact me',
+  },
   contact: {
     title: 'Contact',
     paragraph: 'Available for projects for October 2023 and beyond',
-    cta: "Let's talk",
     nameLabel: 'Your name',
     namePlaceholder: 'Jhon Doe',
     emailLabel: 'Email',

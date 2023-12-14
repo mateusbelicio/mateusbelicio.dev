@@ -12,11 +12,10 @@ export const ptBR = {
     more: 'ou veja mais abaixo',
   },
   about: {
-    title: 'Prazer em conhecê-lo',
-    description: [
-      'Jornada hoje, ponto de tempo alfa e. Linha longa de mifflin, ambas assadas em movimento. Ponto de ruptura da terra dá dor.',
-      'Web para domínios goto por. Através da corrida amanhã, círculo cta amanhã, os usuários criarão. Os princípios básicos do algoritmo devem ser incluídos. Coma o jogo cruzado, obviamente, destrua a versão do supervisor de e-mails, desculpe.',
-    ],
+    title: 'Sobre mim',
+    description:
+      'Sou um desenvolvedor front-end júnior em busca de uma nova função em uma empresa interessante. Meu foco é escrever HTML acessível, usar práticas modernas de CSS e escrever JavaScript limpo. Ao escrever código JavaScript, uso principalmente React, mas posso me adaptar a quaisquer ferramentas necessárias. Moro em Londres, Reino Unido, mas fico feliz em trabalhar remotamente e tenho experiência em equipes remotas. Quando não estou programando, você me encontrará ao ar livre. Adoro estar na natureza, seja para caminhar, correr ou andar de bicicleta. Eu adoraria que você conhecesse meu trabalho.',
+    buttonLabel: 'Ver portfólio',
     status: [
       {
         id: 'experience',
@@ -42,10 +41,13 @@ export const ptBR = {
   },
   email: 'mateusbelicio.dev@gamil.com',
   skipToContent: 'Ir para o conteúdo',
+  cta: {
+    title: 'Interessado em fazer um projeto juntos?',
+    buttonLabel: 'Contate-me',
+  },
   contact: {
     title: 'Entre em contato',
     paragraph: 'Disponível para projetos a partir outubro de 2023 em diante.',
-    cta: 'Vamos conversar',
     nameLabel: 'Seu nome',
     namePlaceholder: 'João Silva',
     emailLabel: 'E-mail',

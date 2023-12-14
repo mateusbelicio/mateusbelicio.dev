@@ -82,7 +82,7 @@
   }
 
   p {
-    @apply font-light leading-relaxed text-secondary-foreground;
+    @apply font-light leading-relaxed text-secondary-foreground/80;
   }
 }
 

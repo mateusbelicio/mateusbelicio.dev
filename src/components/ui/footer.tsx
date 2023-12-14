@@ -5,8 +5,8 @@ import { buttonVariants } from './button';
 
 function Footer() {
   return (
-    <footer className="bg-secondary bg-noise-texture py-8 text-secondary-foreground">
-      <div className="container flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
+    <footer className="bg-secondary bg-noise-texture py-8 text-secondary-foreground transition-colors duration-500">
+      <div className="main-container flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
         <p className="flex items-center gap-4">
           <span>
             <Icons.copy width={16} height={16} />
