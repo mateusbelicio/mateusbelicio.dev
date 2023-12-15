@@ -1,44 +1,36 @@
-import Image, { ImageProps } from 'next/image';
-import { Slot } from '@radix-ui/react-slot';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { AspectRatio } from './ui/aspect-ratio';
+import { buttonVariants } from './ui/button';
 
 interface ProjectCardProps {
-  children: React.ReactNode;
-  id: string;
   title: string;
   description?: string;
-  tags?: string[];
-  thumbnail?: string;
+  thumbnail: string;
   href: string;
-  onlineUrl?: string;
-  direction: 'normal' | 'reverse';
+  buttonLabel: string;
 }
 
-function ProjectCard({ children }: ProjectCardProps) {
-  return <article className="flex justify-center gap-10">{children}</article>;
-}
-
-ProjectCard.Content = ({ children }: { children: React.ReactNode }) => {
-  return <div className="space-y-3">{children}</div>;
-};
-
-ProjectCard.Title = ({ children, asChild }: { children: React.ReactNode; asChild?: boolean }) => {
-  const Comp = asChild ? Slot : 'h2';
-
-  return <Comp className="text-2xl font-bold">{children}</Comp>;
-};
-
-ProjectCard.Description = ({ children }: { children: React.ReactNode }) => (
-  <p className="text-base text-neutral-600">{children}</p>
-);
-
-ProjectCard.Image = (props: ImageProps) => {
+function ProjectCard({ title, description, href, thumbnail, buttonLabel }: ProjectCardProps) {
   return (
-    <AspectRatio ratio={16 / 9} className="max-h-80 bg-muted">
-      <Image fill {...props} />
-    </AspectRatio>
+    <article className="main-grid group gap-y-8 sm:items-stretch">
+      <div className="relative -ml-1 h-72 w-full bg-foreground/25 sm:start-1 sm:col-span-6 sm:row-start-1 sm:h-80 sm:group-odd:col-start-7 lg:h-[31rem]">
+        <Image
+          src={thumbnail}
+          alt={`Thumbnail of the project ${title}`}
+          fill
+          className="object-cover object-top"
+        />
+      </div>
+      <div className="flex flex-col items-start gap-6 border-y border-border py-6 sm:col-span-5 sm:col-start-8 sm:row-start-1 sm:pb-12 sm:pt-8 sm:group-odd:col-start-1 lg:col-span-4 lg:col-start-8 lg:justify-center lg:group-odd:col-start-2">
+        <h2 className="heading-2 sm:mb-2">{title}</h2>
+        <p>{description}</p>
+        <Link href={href} className={buttonVariants()}>
+          {buttonLabel}
+        </Link>
+      </div>
+    </article>
   );
-};
+}
 
 export default ProjectCard;

@@ -13,6 +13,9 @@ module.exports = {
   theme: {
     backgroundImage: { 'noise-texture': "url('/images/noise.png')" },
     extend: {
+      spacing: {
+        18: '4.5rem',
+      },
       fontSize: {
         '3xl': ['2rem', '2.625rem'],
         '5xl': ['2.5rem', '2.625rem'],

@@ -78,7 +78,7 @@
   }
 
   body {
-    @apply min-h-full min-w-[22rem] overflow-x-hidden bg-background bg-noise-texture font-sans text-base text-foreground antialiased transition-colors duration-500 selection:bg-border selection:text-accent-foreground;
+    @apply min-h-full min-w-[22rem] bg-background bg-noise-texture font-sans text-base text-foreground antialiased transition-colors duration-500 selection:bg-border selection:text-accent-foreground;
   }
 
   p {

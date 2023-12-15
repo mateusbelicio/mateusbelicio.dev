@@ -8,7 +8,7 @@ export const ptBR = {
   },
   blurb: {
     title: 'Olá, meu nome é Mateus Belício e adoro construir lindos websites',
-    cta: 'Vamos conversar',
+    cta: 'Sobre mim',
     more: 'ou veja mais abaixo',
   },
   about: {

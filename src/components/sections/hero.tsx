@@ -15,12 +15,9 @@ function HeroSection({ locale }: { locale: Locale }) {
         <div className="z-10 flex flex-col items-start gap-8 sm:col-start-1 sm:col-end-10 sm:row-start-1 sm:gap-12 sm:self-end sm:pr-14 sm:pt-14 lg:col-end-8 lg:gap-[3.25rem]">
           <h1 className="heading-1 min-w-[19.25rem] max-w-sm">{dictionary.blurb.title}</h1>
           <div className="mt-4 flex gap-4">
-            <Link href="#contact" className={cn(buttonVariants())}>
+            <a href="#about" className={cn(buttonVariants())}>
               {dictionary.blurb.cta}
-            </Link>
-            <Link href="#projects" className={cn(buttonVariants({ variant: 'ghost' }))}>
-              {dictionary.blurb.more}
-            </Link>
+            </a>
           </div>
         </div>
       </div>

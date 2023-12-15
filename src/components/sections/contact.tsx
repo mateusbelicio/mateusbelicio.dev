@@ -1,18 +1,25 @@
 'use client';
 
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-import { Button } from '../../../components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../../../components/ui/form';
-import { Input } from '../../../components/ui/input';
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from '../../../components/ui/sheet';
-import { Textarea } from '../../../components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: 'The name must be at least 2 characters.'
+    message: 'The name must be at least 2 characters.',
   }),
   email: z
     .string()
@@ -21,7 +28,7 @@ const formSchema = z.object({
   message: z
     .string()
     .min(10, { message: 'Message must be at least 10 characters.' })
-    .max(500, { message: 'Message must not be longer than 500 characters.' })
+    .max(500, { message: 'Message must not be longer than 500 characters.' }),
 });
 
 function ContactSection({ content }: { content: any }) {
@@ -30,8 +37,8 @@ function ContactSection({ content }: { content: any }) {
     defaultValues: {
       name: '',
       email: '',
-      message: ''
-    }
+      message: '',
+    },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -39,7 +46,7 @@ function ContactSection({ content }: { content: any }) {
       service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
       template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
       user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      template_params: values
+      template_params: values,
     };
 
     try {
@@ -47,7 +54,7 @@ function ContactSection({ content }: { content: any }) {
         method: 'POST',
         body: JSON.stringify(formData),
         mode: 'cors',
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json' },
       });
 
       form.reset();
@@ -58,13 +65,11 @@ function ContactSection({ content }: { content: any }) {
 
   return (
     <section id="contact" className="py-24">
-      <div className="container">
+      <div className="main-container">
         <Sheet>
           <div className="flex flex-col items-center gap-5">
             <SheetTrigger asChild>
-              <Button size="lg" rounded="full">
-                {content.cta}
-              </Button>
+              <Button size="lg">{content.cta}</Button>
             </SheetTrigger>
             <p className="relative flex items-start gap-4 text-center before:absolute before:left-0 before:top-1/2 before:hidden before:h-4 before:w-4 before:flex-shrink-0 before:-translate-x-[200%] before:-translate-y-1/2 before:rounded-full before:bg-emerald-500 sm:before:block">
               {content.paragraph}

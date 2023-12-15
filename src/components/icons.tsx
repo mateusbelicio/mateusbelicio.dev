@@ -21,7 +21,7 @@ const LogoIcon = ({ ...props }: LucideProps) => {
       width="64"
       height="64"
       viewBox="0 0 512 512"
-      className="group transition-colors"
+      className="group transition-colors duration-500"
       fill="none"
       aria-hidden="true"
       focusable="false"

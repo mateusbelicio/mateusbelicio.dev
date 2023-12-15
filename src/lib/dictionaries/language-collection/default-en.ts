@@ -8,7 +8,7 @@ export const enUS = {
   },
   blurb: {
     title: 'Hey, I’m Mateus Belício and I love building beautiful websites',
-    cta: "Let's talk",
+    cta: 'About me',
     more: 'or see more below',
   },
   about: {

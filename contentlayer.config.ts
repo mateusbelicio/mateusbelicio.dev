@@ -22,8 +22,9 @@ const Project = defineDocumentType(() => ({
   fields: {
     title: { type: 'string', required: true },
     date: { type: 'date' },
-    description: { type: 'string' },
+    description: { type: 'string', required: true },
     published: { type: 'boolean', default: true },
+    thumbnail: { type: 'string', required: true },
   },
   computedFields,
 }));
