@@ -19,8 +19,10 @@ interface ProjectPageProps {
 }
 
 async function getProjectFromParams(params: Params) {
-  const slug = !params.slug ? params.locale : `${params.locale}/${params.slug?.join('/')}`;
-  const project: Project | undefined = allProjects.find((project) => project.slugAsParams === slug);
+  const slug = params.slug ? params.slug.join('/') : null;
+  const project: Project | undefined = allProjects.find(
+    (project) => project.slug === slug && project.language === params.locale
+  );
 
   if (!project) null;
 
@@ -46,7 +48,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       title: project.title,
       description: project.description,
       type: 'article',
-      url: absoluteUrl(project.slug),
+      url: absoluteUrl(project.path),
       images: [
         {
           url: ogUrl.toString(),
@@ -83,11 +85,14 @@ async function ProjectPage({ params }: ProjectPageProps) {
           <Icons.back size={16} /> Back
         </Link>
         <div className="mt-4 flex items-end justify-between">
-          <div>
+          <div className="space-y-4">
             <h1 className="mt-2 scroll-m-20 text-4xl font-bold tracking-tight">{project.title}</h1>
             <p>{project?.description}</p>
           </div>
-          <time dateTime={project?.date} className="text-xs font-bold uppercase text-blue-600">
+          <time
+            dateTime={project?.date}
+            className="flex-nowrap whitespace-nowrap text-xs font-bold uppercase text-blue-600"
+          >
             {date?.toLocaleString(params.locale, {
               month: 'long',
               year: 'numeric',

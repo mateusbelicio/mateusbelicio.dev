@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 
-import { Icons } from './icons';
 import LanguageSwitcher from './language-switcher';
 import { ThemeSwitcher } from './theme-switcher';
 

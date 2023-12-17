@@ -5,13 +5,17 @@ import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
 const computedFields: ComputedFields = {
+  path: {
+    type: 'string',
+    resolve: (project) => `/projects/${project._raw.flattenedPath.split('/').slice(2).join('/')}`,
+  },
   slug: {
     type: 'string',
-    resolve: (project) => `/${project._raw.flattenedPath}`,
+    resolve: (project) => project._raw.flattenedPath.split('/').slice(2).join('/'),
   },
-  slugAsParams: {
+  language: {
     type: 'string',
-    resolve: (project) => project._raw.flattenedPath.split('/').slice(1).join('/'),
+    resolve: (project) => (project._raw.flattenedPath.includes('en') ? 'en' : 'pt'),
   },
 };
 

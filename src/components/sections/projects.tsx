@@ -5,13 +5,11 @@ import { Locale } from '@/config/i18n.config';
 import ProjectCard from '../project-card';
 
 function ProjectsSection({ locale }: { locale: Locale }) {
-  const projects: Project[] = allProjects.filter(
-    (project) => project.slugAsParams.startsWith(locale) && project.slugAsParams !== locale
-  );
+  const projects: Project[] = allProjects.filter((project) => project.language === locale);
 
   return (
     <section className="pt-10 sm:pt-24">
-      <div className="main-container gap-18 flex flex-col sm:gap-20">
+      <div className="main-container flex flex-col gap-18 sm:gap-20">
         <h1 className="heading-1 sr-only">Portfolio</h1>
 
         {projects.map((project) => (
@@ -21,7 +19,7 @@ function ProjectsSection({ locale }: { locale: Locale }) {
             description={project.description}
             thumbnail={project.thumbnail}
             buttonLabel={locale === 'en' ? 'View project' : 'Ver projeto'}
-            href={`/projects/${project.slugAsParams}`}
+            href={project.path}
           />
         ))}
       </div>
