@@ -9,35 +9,23 @@ import { MdxCard } from './mdx-card';
 
 const components: MDXComponents = {
   h1: ({ className, ...props }) => (
-    <h1
-      className={cn('mt-2 scroll-m-20 text-4xl font-bold tracking-tight', className)}
-      {...props}
-    />
+    <h1 className={cn('heading-1 mt-2 scroll-m-20', className)} {...props} />
   ),
   h2: ({ className, ...props }) => (
-    <h2
-      className={cn(
-        'mt-10 scroll-m-20 pb-1 text-3xl font-semibold tracking-tight first:mt-0',
-        className
-      )}
-      {...props}
-    />
+    <h2 className={cn('heading-2 mt-10 scroll-m-20 pb-1', className)} {...props} />
   ),
   h3: ({ className, ...props }) => (
-    <h3
-      className={cn('mt-8 scroll-m-20 text-2xl font-semibold tracking-tight', className)}
-      {...props}
-    />
+    <h3 className={cn('heading-3 mt-8 scroll-m-20', className)} {...props} />
   ),
   h4: ({ className, ...props }) => (
     <h4
-      className={cn('mt-8 scroll-m-20 text-xl font-semibold tracking-tight', className)}
+      className={cn('mt-8 scroll-m-20 font-serif text-xl font-semibold tracking-tight', className)}
       {...props}
     />
   ),
   h5: ({ className, ...props }) => (
     <h5
-      className={cn('mt-8 scroll-m-20 text-lg font-semibold tracking-tight', className)}
+      className={cn('mt-8 scroll-m-20 font-serif text-lg font-semibold tracking-tight', className)}
       {...props}
     />
   ),
@@ -67,7 +55,11 @@ const components: MDXComponents = {
     />
   ),
   img: ({ className, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
-    <img className={cn('rounded-md border', className)} alt={alt} {...props} />
+    <img
+      className={cn('w-full rounded-md border sm:mx-auto sm:w-4/5', className)}
+      alt={alt}
+      {...props}
+    />
   ),
   hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (

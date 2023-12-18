@@ -84,9 +84,9 @@ async function ProjectPage({ params }: ProjectPageProps) {
         >
           <Icons.back size={16} /> Back
         </Link>
-        <div className="mt-4 flex items-end justify-between">
+        <div className="mt-4 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div className="space-y-4">
-            <h1 className="mt-2 scroll-m-20 text-4xl font-bold tracking-tight">{project.title}</h1>
+            <h1 className="heading-1 mt-2 scroll-m-20">{project.title}</h1>
             <p>{project?.description}</p>
           </div>
           <time
