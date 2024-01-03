@@ -14,7 +14,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Textarea } from '@/components/ui/textarea';
 
 const formSchema = z.object({
@@ -31,7 +30,7 @@ const formSchema = z.object({
     .max(500, { message: 'Message must not be longer than 500 characters.' }),
 });
 
-function ContactSection({ content }: { content: any }) {
+function ContactSection() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -64,88 +63,72 @@ function ContactSection({ content }: { content: any }) {
   }
 
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="pb-20">
       <div className="main-container">
-        <Sheet>
-          <div className="flex flex-col items-center gap-5">
-            <SheetTrigger asChild>
-              <Button size="lg">{content.cta}</Button>
-            </SheetTrigger>
-            <p className="relative flex items-start gap-4 text-center before:absolute before:left-0 before:top-1/2 before:hidden before:h-4 before:w-4 before:flex-shrink-0 before:-translate-x-[200%] before:-translate-y-1/2 before:rounded-full before:bg-emerald-500 sm:before:block">
-              {content.paragraph}
-            </p>
-          </div>
+        <div className="main-grid space-y-6 pb-8 md:space-y-0">
+          <h2 className="heading-2 md:col-span-5">Contact Me</h2>
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-6 md:col-span-7 md:col-start-6"
+            >
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Jhon Doe" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="email@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        className="resize-none"
+                        rows={4}
+                        maxLength={500}
+                        placeholder="How can I help?"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <SheetContent side="left" className="w-full pt-16 sm:w-3/4">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-8">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{content.nameLabel}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={content.namePlaceholder} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{content.emailLabel}</FormLabel>
-                      <FormControl>
-                        <Input placeholder={content.emailPlaceholder} {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{content.messageLabel}</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          className="h-[35ch] resize-none"
-                          maxLength={500}
-                          placeholder={content.messagePlaceholder}
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <div className="flex items-center justify-end gap-4">
-                  <SheetClose asChild>
-                    <Button
-                      type="reset"
-                      onClick={() => form.reset()}
-                      variant="secondary"
-                      disabled={form.formState.isSubmitting}
-                    >
-                      {content.cancel}
-                    </Button>
-                  </SheetClose>
-                  <Button
-                    type="submit"
-                    disabled={!form.formState.isValid || form.formState.isSubmitting}
-                  >
-                    {form.formState.isSubmitting ? content.submitting : content.submit}
-                  </Button>
-                </div>
-              </form>
-            </Form>
-          </SheetContent>
-        </Sheet>
+              <div className="flex items-center gap-4">
+                <Button
+                  type="submit"
+                  disabled={!form.formState.isValid || form.formState.isSubmitting}
+                >
+                  {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </div>
       </div>
     </section>
   );
