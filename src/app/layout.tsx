@@ -3,9 +3,10 @@ import { Ibarra_Real_Nova } from 'next/font/google';
 
 import '@/styles/globals.css';
 
-import { i18n } from '@/config/i18n.config';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
+import Footer from '@/components/ui/footer';
+import Header from '@/components/ui/header';
 import { Toaster } from '@/components/ui/toaster';
 import Providers from '@/components/providers';
 
@@ -17,13 +18,7 @@ const fontSerif = Ibarra_Real_Nova({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  alternates: {
-    canonical: '/',
-    languages: {
-      en: '/en-US',
-      pt: '/pt-BR',
-    },
-  },
+  alternates: { canonical: '/' },
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.shortName}`,
@@ -61,23 +56,14 @@ export const metadata: Metadata = {
   manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
-export async function generateStaticParams() {
-  const languages = i18n.locales.map((locale) => ({ locale }));
-  return languages;
-}
-
-export default async function RootLayout({
-  children,
-  params: { locale },
-}: {
-  children: React.ReactNode;
-  params: { locale: string };
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={cn('bg-background font-sans antialiased', fontSerif.variable)}>
         <Providers>
-          {children}
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
           <Toaster />
         </Providers>
       </body>

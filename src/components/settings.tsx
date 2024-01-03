@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 
-import LanguageSwitcher from './language-switcher';
 import { ThemeSwitcher } from './theme-switcher';
 
 interface SettingsPros extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,9 +8,8 @@ interface SettingsPros extends React.HTMLAttributes<HTMLDivElement> {
 
 function Settings({ className }: SettingsPros) {
   return (
-    <div className={cn('flex items-center justify-end gap-4', className)}>
+    <div className={cn('flex items-center justify-end gap-2', className)}>
       <ThemeSwitcher />
-      <LanguageSwitcher />
     </div>
   );
 }

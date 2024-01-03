@@ -1,21 +1,17 @@
-import React from 'react';
 import Link from 'next/link';
-
-import { Locale } from '@/config/i18n.config';
-import { getDictionaryServerSide } from '@/lib/dictionaries/default-dictionary-server-side';
 
 import { buttonVariants } from '../ui/button';
 
-function CallToActionSection({ locale }: { locale: Locale }) {
-  const { cta } = getDictionaryServerSide(locale);
-
+function CallToActionSection() {
   return (
     <section className="py-20 sm:py-24 lg:py-36">
       <div className="main-container flex flex-col items-center gap-10 text-center sm:flex-row sm:justify-between sm:text-left">
-        <h2 className="heading-2 min-w-[18rem] max-w-[22rem]">{cta.title}</h2>
+        <h2 className="heading-2 min-w-[18rem] max-w-[22rem]">
+          Interested in doing a project together?
+        </h2>
         <span className="hidden w-full sm:block sm:h-px sm:flex-grow sm:bg-border"></span>
         <Link href="/contact" className={buttonVariants()}>
-          {cta.buttonLabel}
+          Contact me
         </Link>
       </div>
     </section>

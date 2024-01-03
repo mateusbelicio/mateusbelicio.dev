@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 
 import { Icons } from './icons';
 import MobileNavigation from './mobile-navigation';
+import Settings from './settings';
 import { buttonVariants } from './ui/button';
 import {
   NavigationMenu,
@@ -18,36 +19,36 @@ import {
 
 interface MainNavigationProps {
   items?: NavigationItem[];
-  children?: React.ReactNode;
 }
 
-function MainNavigation({ items, children }: MainNavigationProps) {
+function MainNavigation({ items }: MainNavigationProps) {
   const segment = useSelectedLayoutSegment();
 
   return (
-    <div className="flex grow items-center gap-6 md:gap-10">
+    <div className="flex grow items-center gap-2 sm:gap-6 md:gap-10">
       <Link
         href="/"
         className={cn(
           buttonVariants({ variant: 'ghost', size: 'icon' }),
-          'flex h-10 w-10 items-center rounded-sm'
+          'mr-auto flex h-10 w-10 items-center rounded-sm'
         )}
       >
         <Icons.logo width={32} height={32} />
       </Link>
       {items?.length ? (
-        <NavigationMenu>
-          <NavigationMenuList className="hidden justify-start gap-2 md:flex">
+        <NavigationMenu className="hidden sm:block">
+          <NavigationMenuList className="justify-start gap-2">
             {items.map((item) => (
               <NavigationMenuItem key={item.href}>
                 <NavigationMenuLink asChild>
                   <Link
                     href={item.disabled ? '#' : item.href}
                     className={cn(
-                      buttonVariants({ variant: 'ghost', size: 'sm' }),
+                      buttonVariants({ variant: 'link', size: 'sm' }),
                       item.href.startsWith(`/${segment}`)
                         ? 'text-foreground'
                         : 'text-foreground/60',
+                      item.href === '/' && !segment ? 'text-foreground' : '',
                       item.disabled && 'cursor-not-allowed opacity-80'
                     )}
                   >
@@ -59,6 +60,7 @@ function MainNavigation({ items, children }: MainNavigationProps) {
           </NavigationMenuList>
         </NavigationMenu>
       ) : null}
+      <Settings />
       <MobileNavigation items={items} />
     </div>
   );

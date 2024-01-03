@@ -7,7 +7,6 @@ import type { NavigationItem } from '@/types';
 import { cn } from '@/lib/utils';
 
 import { Icons } from './icons';
-import Settings from './settings';
 import { Button, buttonVariants } from './ui/button';
 import {
   NavigationMenu,
@@ -15,7 +14,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from './ui/navigation-menu';
-import { Separator } from './ui/separator';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 
 interface MobileNavigationProps {
@@ -27,7 +25,7 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
   const segment = useSelectedLayoutSegment();
 
   return (
-    <div className="flex grow gap-6 md:gap-10">
+    <div className="flex gap-6 sm:hidden md:gap-10">
       <Sheet>
         <SheetTrigger asChild className="ml-auto flex md:hidden">
           <Button size="icon" variant="ghost">
@@ -53,6 +51,7 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
                             item.href.startsWith(`/${segment}`)
                               ? 'text-foreground'
                               : 'text-foreground/60',
+                            item.href === '/' && !segment ? 'text-foreground' : '',
                             item.disabled && 'cursor-not-allowed opacity-80'
                           )}
                         >
@@ -63,10 +62,8 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
                   ))}
                 </NavigationMenuList>
               </NavigationMenu>
-              <Separator />
             </>
           ) : null}
-          <Settings />
         </SheetContent>
       </Sheet>
     </div>

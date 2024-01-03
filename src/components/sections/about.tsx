@@ -1,13 +1,8 @@
 import Link from 'next/link';
 
-import { Locale } from '@/config/i18n.config';
-import { getDictionaryServerSide } from '@/lib/dictionaries/default-dictionary-server-side';
-
 import { buttonVariants } from '../ui/button';
 
-function AboutSection({ locale }: { locale: Locale }) {
-  const { about } = getDictionaryServerSide(locale);
-
+function AboutSection() {
   return (
     <section id="about" className="pt-24 lg:pt-[9.375rem]">
       <div className="main-container main-grid">
@@ -22,10 +17,17 @@ function AboutSection({ locale }: { locale: Locale }) {
           /> */}
         </div>
         <div className="my-8 space-y-6 border-y border-border pb-[3.25rem] pt-8 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:my-0 sm:pt-[3.25rem] lg:col-start-8 lg:col-end-12">
-          <h2 className="heading-2">{about.title}</h2>
-          <p className="mt-1 ">{about.description}</p>
+          <h2 className="heading-2">About me</h2>
+          <p className="mt-1 ">
+            I’m a junior front-end developer looking for a new role in an exciting company. I focus
+            on writing accessible HTML, using modern CSS practices and writing clean JavaScript.
+            When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are
+            required. I’m based in London, UK, but I’m happy working remotely and have experience in
+            remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature
+            whether that’s going for a walk, run or cycling. I’d love you to check out my work.
+          </p>
           <Link href="/portfolio" className={buttonVariants()}>
-            {about.buttonLabel}
+            Go to portfolio
           </Link>
         </div>
       </div>

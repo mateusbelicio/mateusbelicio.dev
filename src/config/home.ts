@@ -3,15 +3,15 @@ import { MainConfig } from '@/types';
 export const mainConfig: MainConfig = {
   mainNav: [
     {
-      title: 'Projects',
-      href: '/projects',
+      title: 'home',
+      href: '/',
     },
     {
-      title: 'About',
-      href: '/#about',
+      title: 'portfolio',
+      href: '/portfolio',
     },
     {
-      title: 'Contact',
+      title: 'contact',
       href: '/contact',
     },
   ],

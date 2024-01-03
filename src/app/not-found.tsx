@@ -5,7 +5,7 @@ import { EmptyPlaceholder } from '@/components/empty-placeholder';
 
 export default function NotFound() {
   return (
-    <main className="flex flex-1 items-center">
+    <div className="flex flex-1 items-center">
       <EmptyPlaceholder className="mx-auto max-w-[800px]">
         <EmptyPlaceholder.Icon name="warning" />
         <EmptyPlaceholder.Title>Uh oh! Not Found</EmptyPlaceholder.Title>
@@ -16,6 +16,6 @@ export default function NotFound() {
           Go to home page
         </Link>
       </EmptyPlaceholder>
-    </main>
+    </div>
   );
 }

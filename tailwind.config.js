@@ -20,6 +20,11 @@ module.exports = {
         '3xl': ['2rem', '2.625rem'],
         '5xl': ['2.5rem', '2.625rem'],
       },
+      borderRadius: {
+        lg: `var(--radius)`,
+        md: `calc(var(--radius) - 2px)`,
+        sm: 'calc(var(--radius) - 4px)',
+      },
       screens: { lg: '940px' },
       colors: {
         border: 'hsl(var(--border))',

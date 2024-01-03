@@ -1,35 +1,30 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { allProjects, Project } from 'contentlayer/generated';
 
-import { Locale } from '@/config/i18n.config';
 import { absoluteUrl, cn } from '@/lib/utils';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 import { Icons } from '@/components/icons';
 import { MDXContent } from '@/components/mdx-components';
 
 type Params = {
-  locale: Locale;
   slug: string[];
 };
-interface ProjectPageProps {
+interface PortfolioPageProps {
   params: Params;
 }
 
 async function getProjectFromParams(params: Params) {
   const slug = params.slug ? params.slug.join('/') : null;
-  const project: Project | undefined = allProjects.find(
-    (project) => project.slug === slug && project.language === params.locale
-  );
+  const project: Project | undefined = allProjects.find((project) => project.slug === slug);
 
   if (!project) null;
 
   return project;
 }
 
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PortfolioPageProps): Promise<Metadata> {
   const project = await getProjectFromParams(params);
 
   if (!project) return {};
@@ -67,7 +62,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   };
 }
 
-async function ProjectPage({ params }: ProjectPageProps) {
+async function PortfolioPage({ params }: PortfolioPageProps) {
   const project = await getProjectFromParams(params);
 
   if (!project) notFound();
@@ -93,7 +88,7 @@ async function ProjectPage({ params }: ProjectPageProps) {
             dateTime={project?.date}
             className="flex-nowrap whitespace-nowrap text-xs font-bold uppercase text-blue-600"
           >
-            {date?.toLocaleString(params.locale, {
+            {date?.toLocaleString('en', {
               month: 'long',
               year: 'numeric',
               day: '2-digit',
@@ -108,4 +103,4 @@ async function ProjectPage({ params }: ProjectPageProps) {
   );
 }
 
-export default ProjectPage;
+export default PortfolioPage;
