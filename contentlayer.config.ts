@@ -7,7 +7,7 @@ import remarkGfm from 'remark-gfm';
 const computedFields: ComputedFields = {
   path: {
     type: 'string',
-    resolve: (project) => `/projects/${project._raw.flattenedPath.split('/').slice(1).join('/')}`,
+    resolve: (project) => `/portfolio/${project._raw.flattenedPath.split('/').slice(1).join('/')}`,
   },
   slug: {
     type: 'string',
@@ -17,14 +17,15 @@ const computedFields: ComputedFields = {
 
 const Project = defineDocumentType(() => ({
   name: 'Project',
-  filePathPattern: `projects/**/*.mdx`,
+  filePathPattern: `portfolio/**/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    date: { type: 'date' },
+    tags: { type: 'string', required: true },
     description: { type: 'string', required: true },
     published: { type: 'boolean', default: true },
     thumbnail: { type: 'string', required: true },
+    link: { type: 'string', required: true },
   },
   computedFields,
 }));
