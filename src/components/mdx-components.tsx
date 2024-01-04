@@ -9,13 +9,16 @@ import { MdxCard } from './mdx-card';
 
 const components: MDXComponents = {
   h1: ({ className, ...props }) => (
-    <h1 className={cn('heading-1 mt-2 scroll-m-20', className)} {...props} />
+    <h1 className={cn('heading-1 scroll-m-20 [&:not(:first-child)]:mt-2', className)} {...props} />
   ),
   h2: ({ className, ...props }) => (
-    <h2 className={cn('heading-2 mt-10 scroll-m-20 pb-1', className)} {...props} />
+    <h2
+      className={cn('heading-2 scroll-m-20 pb-1 [&:not(:first-child)]:mt-10', className)}
+      {...props}
+    />
   ),
   h3: ({ className, ...props }) => (
-    <h3 className={cn('heading-3 mt-8 scroll-m-20', className)} {...props} />
+    <h3 className={cn('heading-3 scroll-m-20 [&:not(:first-child)]:mt-8', className)} {...props} />
   ),
   h4: ({ className, ...props }) => (
     <h4
@@ -56,7 +59,7 @@ const components: MDXComponents = {
   ),
   img: ({ className, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img
-      className={cn('w-full rounded-md border sm:mx-auto sm:w-4/5', className)}
+      className={cn('h-48 w-full rounded-md border sm:h-[25rem]', className)}
       alt={alt}
       {...props}
     />
