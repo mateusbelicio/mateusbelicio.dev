@@ -4,6 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import EmailTemplate from '@/lib/emails/template';
+import { resend } from '@/lib/resend';
 import { Input } from '@/components/ui/input';
 
 import { Button } from './ui/button';
@@ -38,21 +40,20 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const formData = {
-      service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-      template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-      user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
-      template_params: values,
+      invitedByUserName: values.name,
+      invitedByEmail: values.email,
+      message: values.message,
     };
 
     try {
-      await fetch(process.env.NEXT_PUBLIC_EMAILJS_API_URL || '', {
+      await fetch('/api/send' || '', {
         method: 'POST',
         body: JSON.stringify(formData),
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
       });
 
-      methods.reset();
+      // methods.reset();
 
       toast({
         title: 'Message sent successfully!',
