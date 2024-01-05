@@ -1,3 +1,6 @@
+import Link from 'next/link';
+
+import { mainConfig } from '@/config/main';
 import { cn } from '@/lib/utils';
 
 import { Icons } from '../icons';
@@ -5,31 +8,30 @@ import { buttonVariants } from './button';
 
 function Footer() {
   return (
-    <footer className="bg-secondary bg-noise-texture py-8 text-secondary-foreground transition-colors duration-500">
-      <div className="main-container flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
-        <p className="flex items-center gap-4">
-          <span>
-            <Icons.copy width={16} height={16} />
-          </span>
-          <span>Mateus Belício {new Date().getFullYear()}</span>
-        </p>
+    <footer className="bg-secondary bg-noise-texture bg-repeat-round py-14 text-secondary-foreground transition-colors duration-500 selection:bg-background selection:text-foreground sm:py-6">
+      <div className="main-container flex flex-col items-center gap-10 sm:flex-row sm:gap-12">
+        <div>
+          <Icons.logo width={32} height={32} />
+        </div>
+
+        <ul className="flex flex-col sm:flex-grow sm:flex-row">
+          {mainConfig.mainNav.map((link) => (
+            <li key={link.title}>
+              <Link href={link.href} className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
+                {link.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
         <ul className="flex gap-4">
-          <li>
-            <SocialLink
-              href="http://linkedin.com/in/mateusbelicio/"
-              label="Link to Mateus Belício’s profile on Linkedin"
-            >
-              <Icons.linkedin />
-            </SocialLink>
-          </li>
-          <li>
-            <SocialLink
-              href="https://github.com/mateusbelicio"
-              label="Link to Mateus Belício’s profile on Github"
-            >
-              <Icons.github />
-            </SocialLink>
-          </li>
+          {mainConfig.socialLinks.map((link) => (
+            <li key={link.title}>
+              <SocialLink href={link.href} label={link.title}>
+                <link.icon size={24} strokeWidth={1.5} />
+              </SocialLink>
+            </li>
+          ))}
         </ul>
       </div>
     </footer>
@@ -52,14 +54,11 @@ interface SocialLinkProps {
 function SocialLink({ children, label, href }: SocialLinkProps) {
   return (
     <a
-      className={cn(
-        buttonVariants({ variant: 'ghost', size: 'icon' }),
-        'hover:bg-accent-foreground/20'
-      )}
+      className="inline-flex rounded-sm text-secondary-foreground outline-none transition-colors hover:text-secondary-foreground/50 focus-visible:text-secondary-foreground/50 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-secondary-foreground/50"
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={label}
+      aria-label={`Link to Mateus Belício’s profile on ${label}`}
     >
       {children}
     </a>
