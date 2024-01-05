@@ -4,7 +4,7 @@ import ProjectCard from '../project-card';
 
 function ProjectsSection() {
   return (
-    <section className="pt-10 sm:pt-24">
+    <section className="pb-12 pt-2 sm:pt-8">
       <div className="main-container flex flex-col gap-18 sm:gap-20">
         <h1 className="heading-1 sr-only">Portfolio</h1>
 

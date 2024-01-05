@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 import { Icons } from './icons';
 import MobileNavigation from './mobile-navigation';
-import Settings from './settings';
+import { ThemeSwitcher } from './theme-switcher';
 import { buttonVariants } from './ui/button';
 import {
   NavigationMenu,
@@ -60,7 +60,7 @@ function MainNavigation({ items }: MainNavigationProps) {
           </NavigationMenuList>
         </NavigationMenu>
       ) : null}
-      <Settings />
+      <ThemeSwitcher />
       <MobileNavigation items={items} />
     </div>
   );

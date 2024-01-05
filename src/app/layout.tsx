@@ -62,7 +62,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={cn('bg-background font-sans antialiased', fontSerif.variable)}>
         <Providers>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 bg-noise-texture bg-repeat-round">{children}</main>
           <Footer />
           <Toaster />
         </Providers>

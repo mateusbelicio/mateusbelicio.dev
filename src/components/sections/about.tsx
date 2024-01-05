@@ -4,7 +4,7 @@ import { buttonVariants } from '../ui/button';
 
 function AboutSection() {
   return (
-    <section id="about" className="pt-24 lg:pt-[9.375rem]">
+    <section id="about" className="py-12 lg:py-18">
       <div className="main-container main-grid">
         <div className="relative h-[21.625rem] w-full bg-primary/25 sm:col-start-1 sm:col-end-6 sm:row-start-1 sm:h-full lg:col-end-7">
           {/* <Image

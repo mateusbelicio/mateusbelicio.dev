@@ -4,7 +4,7 @@ import { buttonVariants } from '../ui/button';
 
 function CallToActionSection() {
   return (
-    <section className="py-20 sm:py-24 lg:py-36">
+    <section className="pb-20 pt-8 sm:pb-24 sm:pt-12 lg:pb-36 lg:pt-18">
       <div className="main-container flex flex-col items-center gap-10 text-center sm:flex-row sm:justify-between sm:text-left">
         <h2 className="heading-2 min-w-[18rem] max-w-[22rem]">
           Interested in doing a project together?

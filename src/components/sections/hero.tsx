@@ -4,7 +4,7 @@ import { buttonVariants } from '../ui/button';
 
 function HeroSection() {
   return (
-    <section className="pb-16 pt-20 md:pb-20 md:pt-40">
+    <section className="pb-12 pt-20 lg:pb-18 lg:pt-40">
       <div className="main-container main-grid relative gap-y-6">
         <div className="z-10 flex flex-col items-start gap-8 sm:col-start-1 sm:col-end-10 sm:row-start-1 sm:gap-12 sm:self-end sm:pr-14 sm:pt-14 lg:col-end-8 lg:gap-[3.25rem]">
           <h1 className="heading-1 min-w-[19.25rem] max-w-sm">
