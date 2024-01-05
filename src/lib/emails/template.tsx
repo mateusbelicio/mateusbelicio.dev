@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   Body,
   Button,
@@ -8,7 +7,6 @@ import {
   Heading,
   Hr,
   Html,
-  Img,
   Link,
   Preview,
   Row,
@@ -19,17 +17,15 @@ import {
 
 interface EmailProps {
   name?: string;
-  invitedByUserName?: string;
-  invitedByEmail?: string;
+  userName?: string;
+  userEmail?: string;
   message?: string;
 }
 
-const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '';
-
 export const EmailTemplate = ({
   name = 'mateusbelicio',
-  invitedByUserName = 'bukinoshita',
-  invitedByEmail = 'bukinoshita@example.com',
+  userName = 'bukinoshita',
+  userEmail = 'bukinoshita@example.com',
   message = `
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam culpa repellendus maiores nobis ex non quos maxime placeat voluptatum laudantium cum aperiam at dicta autem, accusantium illo quod numquam voluptas dolorum velit deserunt veniam delectus iure explicabo. 
 
@@ -45,32 +41,30 @@ export const EmailTemplate = ({
       <Head />
       <Preview>{previewText}</Preview>
       <Tailwind>
-        <Body className="mx-auto my-auto bg-neutral-50 font-sans">
+        <Body className="mx-auto my-auto bg-white font-sans">
           <Container className="mx-auto my-10 w-[465px] rounded border border-solid border-neutral-200 p-5">
             <Section className="mt-8">
-              <Img
-                src={`${baseUrl}/static/logo.png`}
-                width="32"
-                height="32"
-                alt="Mateus Belicio"
-                className="mx-auto my-0"
-              />
+              <Text className="text-center">
+                <span className="box-border inline-block h-12 w-12 rounded-lg bg-[#09090B] p-1 align-middle text-4xl font-extrabold leading-none text-white">
+                  M
+                </span>
+              </Text>
             </Section>
-            <Heading className="mx-0 my-8 p-0 text-center text-2xl font-normal text-neutral-950">
+            <Heading className="mx-0 mb-8 mt-4 p-0 text-center text-2xl font-normal text-neutral-950">
               You received a new <strong>message</strong>
             </Heading>
             <Text className="text-sm text-neutral-950">Hello {name},</Text>
             <Text className="text-sm text-neutral-950">
-              <strong>{invitedByUserName}</strong> (
-              <Link href={`mailto:${invitedByEmail}`} className="text-blue-600 no-underline">
-                {invitedByEmail}
+              <strong>{userName}</strong> (
+              <Link href={`mailto:${userEmail}`} className="text-blue-600 no-underline">
+                {userEmail}
               </Link>
               ) sent you a message via your website.
             </Text>
             <Hr className="mx-0 my-[26px] w-full border border-solid border-neutral-200" />
 
             {message.split('\n').map((paragraph, index) => (
-              <Text key={index} className="text-sm leading-normal text-neutral-950">
+              <Text key={index} className="text-sm leading-normal text-neutral-600">
                 {paragraph}
               </Text>
             ))}
@@ -79,7 +73,7 @@ export const EmailTemplate = ({
                 <Column>
                   <Button
                     className="rounded bg-[#000000] px-5 py-3 text-center text-xs font-semibold text-neutral-200 no-underline"
-                    href={`mailto:${invitedByEmail}`}
+                    href={`mailto:${userEmail}`}
                   >
                     Reply
                   </Button>
@@ -89,7 +83,7 @@ export const EmailTemplate = ({
 
             <Hr className="mx-0 my-[26px] w-full border border-solid border-neutral-200" />
             <Text className="text-xs leading-normal text-neutral-400">
-              This invitation was intended for <span className="text-neutral-950">{name} </span>.
+              This message was intended for <span className="text-neutral-950">{name} </span>.
             </Text>
           </Container>
         </Body>

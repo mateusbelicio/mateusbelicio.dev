@@ -6,13 +6,14 @@ import { resend } from '@/lib/resend';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { invitedByEmail, invitedByUserName, message } = body;
+    const { userEmail, userName, message } = body;
 
     const { data, error } = await resend.emails.send({
-      from: process.env.RESEND_TO,
+      from: `${userName} <onboarding@resend.dev>`,
       to: process.env.RESEND_TO,
+      reply_to: userEmail,
       subject: '[M.DEV] New message',
-      react: EmailTemplate({ invitedByEmail, invitedByUserName, message }),
+      react: EmailTemplate({ userEmail, userName, message }),
     });
 
     if (error) throw error;

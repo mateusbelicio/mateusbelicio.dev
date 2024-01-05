@@ -4,8 +4,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import EmailTemplate from '@/lib/emails/template';
-import { resend } from '@/lib/resend';
 import { Input } from '@/components/ui/input';
 
 import { Button } from './ui/button';
@@ -40,8 +38,8 @@ export default function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const formData = {
-      invitedByUserName: values.name,
-      invitedByEmail: values.email,
+      userName: values.name,
+      userEmail: values.email,
       message: values.message,
     };
 
