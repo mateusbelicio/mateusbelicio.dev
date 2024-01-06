@@ -3,5 +3,4 @@ node_modules
 .next
 .eslintrc.json
 build
-.contentlayer
 *.mdx
