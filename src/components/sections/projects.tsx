@@ -1,4 +1,4 @@
-import { allProjects } from 'contentlayer/generated';
+import { allProjects } from '@/content/portfolio';
 
 import ProjectCard from '../project-card';
 
@@ -10,7 +10,7 @@ function ProjectsSection() {
 
         {allProjects.map((project) => (
           <ProjectCard
-            key={project._id}
+            key={project.slug}
             title={project.title}
             description={project.description}
             thumbnail={project.thumbnail}

@@ -1,14 +1,9 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { allProjects, Project } from 'contentlayer/generated';
+import { allProjects } from '@/content/portfolio';
 
-import { absoluteUrl, cn, shimmer, toBase64 } from '@/lib/utils';
-import { Badge } from '@/components/ui/badge';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { Icons } from '@/components/icons';
-import { MDXContent } from '@/components/mdx-components';
+import { Project } from '@/types/project';
+import { absoluteUrl } from '@/lib/utils';
 import CallToActionSection from '@/components/sections/cta';
 import DetailsSection from '@/components/sections/details';
 
