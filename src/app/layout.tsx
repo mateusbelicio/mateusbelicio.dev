@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Ibarra_Real_Nova } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@/styles/globals.css';
@@ -66,8 +67,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <main className="flex-1 bg-noise-texture bg-repeat-round">{children}</main>
           <Footer />
           <Toaster />
-          <SpeedInsights />
         </Providers>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
