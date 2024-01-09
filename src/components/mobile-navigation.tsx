@@ -14,7 +14,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from './ui/navigation-menu';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from './ui/sheet';
 
 interface MobileNavigationProps {
   items?: NavigationItem[];
@@ -39,25 +39,27 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
                 <NavigationMenuList className="flex w-full flex-none flex-col items-stretch justify-start gap-4 space-x-0">
                   {items.map((item) => (
                     <NavigationMenuItem key={item.href}>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href={item.disabled ? '#' : item.href}
-                          className={cn(
-                            buttonVariants({
-                              variant: 'outline',
-                              size: 'lg',
-                              className: 'w-full justify-center',
-                            }),
-                            item.href.startsWith(`/${segment}`)
-                              ? 'text-foreground'
-                              : 'text-foreground/60',
-                            item.href === '/' && !segment ? 'text-foreground' : '',
-                            item.disabled && 'cursor-not-allowed opacity-80'
-                          )}
-                        >
-                          {item.title}
-                        </Link>
-                      </NavigationMenuLink>
+                      <SheetClose asChild>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.disabled ? '#' : item.href}
+                            className={cn(
+                              buttonVariants({
+                                variant: 'outline',
+                                size: 'lg',
+                                className: 'w-full justify-center',
+                              }),
+                              item.href.startsWith(`/${segment}`)
+                                ? 'text-foreground'
+                                : 'text-foreground/60',
+                              item.href === '/' && !segment ? 'text-foreground' : '',
+                              item.disabled && 'cursor-not-allowed opacity-80'
+                            )}
+                          >
+                            {item.title}
+                          </Link>
+                        </NavigationMenuLink>
+                      </SheetClose>
                     </NavigationMenuItem>
                   ))}
                 </NavigationMenuList>
