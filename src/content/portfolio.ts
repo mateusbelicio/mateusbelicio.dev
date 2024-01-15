@@ -8,7 +8,8 @@ export const allProjects: Project[] = [
     thumbnail: '/images/projects/art-gallery-thumbnail.jpg',
     hero: '/images/projects/art-gallery-hero.jpg',
     link: 'https://mateusbelicio.github.io/art-gallery-website/',
-    projectBackground: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore repudiandae excepturi omnis pariatur non accusantium id fugiat, animi consequuntur modi iure illo, rerum explicabo natus deserunt, tempore placeat! Iste numquam porro, sapiente ut veritatis quos error ducimus voluptates incidunt dolore esse laudantium culpa consectetur, totam, eum rerum dolorem possimus dolores?`,
+    projectBackground: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore repudiandae excepturi omnis pariatur non accusantium id fugiat, animi consequuntur modi iure illo, rerum explicabo natus deserunt, tempore placeat! Iste numquam porro, sapiente ut veritatis quos error ducimus voluptates incidunt dolore esse laudantium culpa consectetur, totam, eum rerum dolorem possimus dolores?
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore repudiandae excepturi omnis pariatur non accusantium id fugiat, animi consequuntur modi iure illo, rerum explicabo natus deserunt, tempore placeat! Iste numquam porro, sapiente ut veritatis quos error ducimus voluptates incidunt dolore esse laudantium culpa consectetur, totam, eum rerum dolorem possimus dolores?`,
     staticPreviews: [
       '/images/projects/art-gallery-preview-1.jpg',
       '/images/projects/art-gallery-preview-2.jpg',

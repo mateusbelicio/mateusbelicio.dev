@@ -39,10 +39,7 @@ function DetailsSection({ project }: { project: Project }) {
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn(
-              buttonVariants({ variant: 'secondary' }),
-              'sm:col-span-5 sm:col-start-1 sm:mt-4'
-            )}
+            className={cn(buttonVariants(), 'sm:col-span-5 sm:col-start-1 sm:mt-4')}
           >
             Visit website
           </Link>
@@ -51,14 +48,11 @@ function DetailsSection({ project }: { project: Project }) {
           <h3 className="heading-3 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
             Project Background
           </h3>
-          <p className="leading-7 [&:not(:first-child)]:mt-7">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore repudiandae excepturi
-            omnis pariatur non accusantium id fugiat, animi consequuntur modi iure illo, rerum
-            explicabo natus deserunt, tempore placeat! Iste numquam porro, sapiente ut veritatis
-            quos error ducimus voluptates incidunt dolore esse laudantium culpa consectetur, totam,
-            eum rerum dolorem possimus dolores?
-          </p>
-
+          {project.projectBackground.split('\n').map((projectBg, index) => (
+            <p key={index} className="leading-7 [&:not(:first-child)]:mt-7">
+              {projectBg}
+            </p>
+          ))}
           <h3 className="heading-3 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
             Static Previews
           </h3>

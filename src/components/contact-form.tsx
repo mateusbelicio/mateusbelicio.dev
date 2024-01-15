@@ -122,6 +122,7 @@ export default function ContactForm() {
         <div className="flex items-center gap-4">
           <Button
             type="submit"
+            variant="secondary"
             disabled={!methods.formState.isValid || methods.formState.isSubmitting}
           >
             {methods.formState.isSubmitting ? 'Sending...' : 'Send Message'}
