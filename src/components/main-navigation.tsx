@@ -32,6 +32,7 @@ function MainNavigation({ items }: MainNavigationProps) {
           buttonVariants({ variant: 'ghost', size: 'icon' }),
           'mr-auto flex h-10 w-10 items-center rounded-sm'
         )}
+        aria-label="Go to home page"
       >
         <Icons.logo width={32} height={32} />
       </Link>

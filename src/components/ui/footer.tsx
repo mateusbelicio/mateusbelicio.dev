@@ -10,9 +10,13 @@ function Footer() {
   return (
     <footer className="bg-secondary bg-noise-texture bg-repeat-round py-14 text-secondary-foreground transition-colors duration-500 selection:bg-background selection:text-foreground sm:py-6">
       <div className="main-container flex flex-col items-center gap-10 sm:flex-row sm:gap-12">
-        <div>
+        <a
+          href="#"
+          className={buttonVariants({ variant: 'ghost', size: 'icon' })}
+          aria-label="Go to top"
+        >
           <Icons.logo width={32} height={32} />
-        </div>
+        </a>
 
         <ul className="flex flex-col sm:flex-grow sm:flex-row">
           {mainConfig.mainNav.map((link) => (

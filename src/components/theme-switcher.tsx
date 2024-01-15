@@ -24,7 +24,12 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <Button onClick={toggleTheme} variant="ghost" size="icon">
+    <Button
+      onClick={toggleTheme}
+      variant="ghost"
+      size="icon"
+      aria-label={`Change theme to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+    >
       {theme === 'dark' ? <Icons.moon /> : <Icons.sun />}
     </Button>
   );
