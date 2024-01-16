@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Ibarra_Real_Nova } from 'next/font/google';
+import { Ibarra_Real_Nova, Public_Sans } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -16,6 +16,12 @@ const fontSerif = Ibarra_Real_Nova({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-serif',
+});
+
+const fontSans = Public_Sans({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
@@ -61,10 +67,12 @@ export const metadata: Metadata = {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('bg-background font-sans antialiased', fontSerif.variable)}>
+      <body
+        className={cn('bg-background font-sans antialiased', fontSerif.variable, fontSans.variable)}
+      >
         <Providers>
           <Header />
-          <main className="flex-1 bg-noise-texture bg-repeat-round">{children}</main>
+          <main className="flex-1">{children}</main>
           <Footer />
           <Toaster />
         </Providers>

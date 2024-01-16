@@ -81,6 +81,7 @@ module.exports = {
       },
       fontFamily: {
         serif: ['var(--font-serif)', ...fontFamily.serif],
+        sans: ['var(--font-sans)', ...fontFamily.sans]
       },
       boxShadow: {
         DEFAULT: '6px 12px 4px 0 rgba(0, 0, 0, 0.25)',
