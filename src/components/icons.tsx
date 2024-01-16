@@ -6,6 +6,7 @@ import {
   ChevronRight,
   Clock4Icon,
   Copyright,
+  ExternalLink,
   Github,
   Linkedin,
   Loader2,
@@ -41,11 +42,23 @@ const LogoIcon = ({ ...props }: LucideProps) => {
   );
 };
 
-export const Icons = {
+const DownArrowsIcon = ({ ...props }: LucideProps) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" {...props}>
+    <g fill="none" fillRule="evenodd" stroke="currentColor">
+      <path d="M0 9l8 4 8-4" />
+      <path opacity=".5" d="M0 5l8 4 8-4" />
+      <path opacity=".25" d="M0 1l8 4 8-4" />
+    </g>
+  </svg>
+);
+
+const IconsDefinitions = {
   back: ArrowLeft,
   clock: Clock4Icon,
   close: X,
   copy: Copyright,
+  downArrows: DownArrowsIcon,
+  externalLink: ExternalLink,
   github: Github,
   linkedin: Linkedin,
   loader: Loader2,
@@ -59,4 +72,16 @@ export const Icons = {
   user: User2,
   warning: AlertTriangle,
   work: Briefcase,
+};
+
+export type IconsName = keyof typeof IconsDefinitions;
+
+export type IconsProps = React.HTMLAttributes<SVGSVGElement> &
+  LucideProps & {
+    name: IconsName;
+  };
+
+export const Icons = ({ name, ...props }: IconsProps) => {
+  const Icon = IconsDefinitions[name];
+  return <Icon {...props} aria-hidden={true} />;
 };

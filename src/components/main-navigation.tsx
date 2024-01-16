@@ -34,7 +34,7 @@ function MainNavigation({ items }: MainNavigationProps) {
         )}
         aria-label="Go to home page"
       >
-        <Icons.logo width={32} height={32} />
+        <Icons name="logo" width={32} height={32} />
       </Link>
       {items?.length ? (
         <NavigationMenu className="hidden sm:block">
@@ -46,10 +46,8 @@ function MainNavigation({ items }: MainNavigationProps) {
                     href={item.disabled ? '#' : item.href}
                     className={cn(
                       buttonVariants({ variant: 'link', size: 'sm' }),
-                      item.href.startsWith(`/${segment}`)
-                        ? 'text-foreground'
-                        : 'text-foreground/60',
-                      item.href === '/' && !segment ? 'text-foreground' : '',
+                      item.href.startsWith(`/${segment}`) ? 'text-accent' : 'text-foreground/90',
+                      item.href === '/' && !segment ? 'text-accent' : '',
                       item.disabled && 'cursor-not-allowed opacity-80'
                     )}
                   >

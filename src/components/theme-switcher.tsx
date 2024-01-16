@@ -30,7 +30,7 @@ export function ThemeSwitcher() {
       size="icon"
       aria-label={`Change theme to ${theme === 'dark' ? 'light' : 'dark'} mode`}
     >
-      {theme === 'dark' ? <Icons.moon /> : <Icons.sun />}
+      <Icons name={theme === 'dark' ? 'moon' : 'sun'} />
     </Button>
   );
 }

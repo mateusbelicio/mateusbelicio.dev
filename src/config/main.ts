@@ -1,7 +1,5 @@
 import { MainConfig } from '@/types';
 
-import { Icons } from '@/components/icons';
-
 export const mainConfig: MainConfig = {
   mainNav: [
     {
@@ -21,12 +19,12 @@ export const mainConfig: MainConfig = {
     {
       title: 'Linkedin',
       href: 'http://linkedin.com/in/mateusbelicio/',
-      icon: Icons.linkedin,
+      icon: 'linkedin',
     },
     {
       title: 'Github',
       href: 'https://github.com/mateusbelicio',
-      icon: Icons.github,
+      icon: 'github',
     },
   ],
 };

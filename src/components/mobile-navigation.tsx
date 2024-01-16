@@ -29,7 +29,7 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
       <Sheet>
         <SheetTrigger asChild className="ml-auto flex md:hidden">
           <Button size="icon" variant="ghost">
-            <Icons.menu />
+            <Icons name="menu" />
           </Button>
         </SheetTrigger>
         <SheetContent className="flex w-full flex-col gap-10 pt-20 min-[420px]:max-w-sm">
@@ -45,14 +45,14 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
                             href={item.disabled ? '#' : item.href}
                             className={cn(
                               buttonVariants({
-                                variant: 'outline',
-                                size: 'lg',
+                                variant: 'link',
+                                size: 'sm',
                                 className: 'w-full justify-center',
                               }),
                               item.href.startsWith(`/${segment}`)
-                                ? 'text-foreground'
+                                ? 'text-accent hover:text-accent'
                                 : 'text-foreground/60',
-                              item.href === '/' && !segment ? 'text-foreground' : '',
+                              item.href === '/' && !segment ? 'text-accent hover:text-accent' : '',
                               item.disabled && 'cursor-not-allowed opacity-80'
                             )}
                           >

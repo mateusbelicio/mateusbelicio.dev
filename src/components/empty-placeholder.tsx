@@ -2,7 +2,7 @@ import * as React from 'react';
 import { LucideProps } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Icons } from '@/components/icons';
+import { Icons, IconsName } from '@/components/icons';
 
 interface EmptyPlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -10,7 +10,7 @@ export function EmptyPlaceholder({ className, children, ...props }: EmptyPlaceho
   return (
     <div
       className={cn(
-        'flex min-h-[400px] flex-col items-center justify-center rounded-md p-8 text-center animate-in fade-in-50',
+        'flex min-h-[400px] flex-col items-center justify-center rounded-sm p-8 text-center animate-in fade-in-50',
         className
       )}
       {...props}
@@ -23,7 +23,7 @@ export function EmptyPlaceholder({ className, children, ...props }: EmptyPlaceho
 }
 
 interface EmptyPlaceholderIconProps extends LucideProps {
-  name: keyof typeof Icons;
+  name: IconsName;
 }
 
 EmptyPlaceholder.Icon = function EmptyPlaceHolderIcon({
@@ -31,15 +31,9 @@ EmptyPlaceholder.Icon = function EmptyPlaceHolderIcon({
   className,
   ...props
 }: EmptyPlaceholderIconProps) {
-  const Icon = Icons[name];
-
-  if (!Icon) {
-    return null;
-  }
-
   return (
     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-muted">
-      <Icon className={cn('h-10 w-10', className)} {...props} />
+      <Icons name={name} className={cn('h-10 w-10', className)} {...props} />
     </div>
   );
 };
