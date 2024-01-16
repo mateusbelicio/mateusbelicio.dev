@@ -51,11 +51,12 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      // methods.reset();
+      methods.reset();
 
       toast({
         title: 'Message sent successfully!',
         description: 'Your message has been sent and Mateus will answer you soon.',
+        variant: 'success',
       });
     } catch (error) {
       console.error(error);
