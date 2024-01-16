@@ -14,7 +14,7 @@ interface ProjectCardProps {
 function ProjectCard({ title, description, href, thumbnail, buttonLabel }: ProjectCardProps) {
   return (
     <article className="main-grid group gap-y-8 sm:items-stretch">
-      <div className="relative -ml-1 h-72 w-full overflow-clip rounded-lg border border-border bg-foreground/25 sm:start-1 sm:col-span-6 sm:row-start-1 sm:my-auto sm:h-80 sm:group-odd:col-start-7 lg:h-[31rem]">
+      <div className="relative -ml-1 h-72 w-full overflow-clip rounded-sm border border-border bg-foreground/25 sm:start-1 sm:col-span-6 sm:row-start-1 sm:my-auto sm:h-80 sm:group-odd:col-start-7 lg:h-[31rem]">
         <ImageWithLoader
           src={thumbnail}
           sizes="(min-width: 640px) 50vw, 100vw"

@@ -11,7 +11,7 @@ function DetailsSection({ project }: { project: Project }) {
   return (
     <section className="pb-8 pt-2 sm:pt-8 lg:pt-11">
       <div className="main-container main-grid lg:items-start">
-        <div className="relative mb-10 h-36 w-full overflow-clip rounded-lg sm:h-80 lg:mb-28 lg:h-[31.25rem]">
+        <div className="relative mb-10 h-36 w-full overflow-clip rounded-sm sm:h-80 lg:mb-28 lg:h-[31.25rem]">
           <ImageWithLoader
             src={project.hero}
             sizes="100vw"
@@ -30,7 +30,7 @@ function DetailsSection({ project }: { project: Project }) {
           </p>
           <div className="flex flex-wrap gap-2  text-[0.8125rem] font-bold text-primary sm:col-span-5 sm:col-start-1 lg:mt-2">
             {project?.tags.split(' ').map((tag) => (
-              <Badge key={tag} variant="outline" className="border-blue-600 text-blue-600">
+              <Badge key={tag} variant="outline" className="border-accent text-accent">
                 {tag}
               </Badge>
             ))}
@@ -65,7 +65,7 @@ function DetailsSection({ project }: { project: Project }) {
                   placeholderWidth={860}
                   placeholderHeight={400}
                   fill
-                  className="rounded-md object-cover"
+                  className="rounded-sm object-cover"
                   alt={`Preview of ${project.title} preject ()${index + 1}`}
                 />
               </div>
