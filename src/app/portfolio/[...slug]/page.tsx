@@ -66,9 +66,25 @@ async function PortfolioPage({ params }: PortfolioPageProps) {
 
   if (!project) notFound();
 
+  const currentProjectIndex = allProjects.findIndex((proj) => project.slug === proj.slug);
+  const nextProjectIndex =
+    currentProjectIndex < allProjects.length - 1 ? currentProjectIndex + 1 : 0;
+  const previusProjectIndex =
+    currentProjectIndex > 0 ? currentProjectIndex - 1 : allProjects.length - 1;
+
   return (
     <>
-      <DetailsSection project={project} />
+      <DetailsSection
+        project={project}
+        next={{
+          path: allProjects[nextProjectIndex].path,
+          title: allProjects[nextProjectIndex].title,
+        }}
+        previus={{
+          path: allProjects[previusProjectIndex].path,
+          title: allProjects[previusProjectIndex].title,
+        }}
+      />
       <CallToActionSection />
     </>
   );
