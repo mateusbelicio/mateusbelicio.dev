@@ -2,7 +2,7 @@ import * as React from 'react';
 import { LucideProps } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Icons, IconsName } from '@/components/icons';
+import { Icons, IconsName } from '@/components/features/icons';
 
 interface EmptyPlaceholderProps extends React.HTMLAttributes<HTMLDivElement> {}
 

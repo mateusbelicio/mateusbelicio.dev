@@ -6,15 +6,15 @@ import type { NavigationItem } from '@/types';
 
 import { cn } from '@/lib/utils';
 
-import { Icons } from './icons';
-import { Button, buttonVariants } from './ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from './ui/navigation-menu';
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from './ui/sheet';
+} from '../ui/navigation-menu';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '../ui/sheet';
+import { Icons } from './icons';
 
 interface MobileNavigationProps {
   items?: NavigationItem[];

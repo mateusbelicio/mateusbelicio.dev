@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import ImageWithLoader from './image-with-loader';
+import ImageWithLoader from './features/image-with-loader';
 import { buttonVariants } from './ui/button';
 
 interface ProjectCardProps {

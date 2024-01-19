@@ -6,16 +6,16 @@ import type { NavigationItem } from '@/types';
 
 import { cn } from '@/lib/utils';
 
-import { Icons } from './icons';
-import MobileNavigation from './mobile-navigation';
-import { ThemeSwitcher } from './theme-switcher';
-import { buttonVariants } from './ui/button';
+import { buttonVariants } from '../ui/button';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from './ui/navigation-menu';
+} from '../ui/navigation-menu';
+import { Icons } from './icons';
+import MobileNavigation from './mobile-navigation';
+import { ThemeSwitcher } from './theme-switcher';
 
 interface MainNavigationProps {
   items?: NavigationItem[];

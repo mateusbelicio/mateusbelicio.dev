@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { mainConfig } from '@/config/main';
 import { cn } from '@/lib/utils';
 
-import { Icons } from '../icons';
+import { Icons } from '../features/icons';
 import { buttonVariants } from './button';
 
 function Footer() {

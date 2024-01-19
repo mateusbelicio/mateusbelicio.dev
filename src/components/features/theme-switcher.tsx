@@ -5,8 +5,8 @@ import { useTheme } from 'next-themes';
 
 import { useMounted } from '@/hooks/useMounted';
 
+import { Button } from '../ui/button';
 import { Icons } from './icons';
-import { Button } from './ui/button';
 
 export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();

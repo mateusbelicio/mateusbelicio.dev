@@ -1,6 +1,6 @@
 import { LucideIcon } from 'lucide-react';
 
-import { Icons, IconsName } from '@/components/icons';
+import { Icons, IconsName } from '@/components/features/icons';
 
 export type SiteConfig = {
   name: string;

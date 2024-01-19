@@ -1,6 +1,6 @@
 import { mainConfig } from '@/config/main';
 
-import MainNavigation from '../main-navigation';
+import MainNavigation from '../features/main-navigation';
 
 function Header() {
   return (

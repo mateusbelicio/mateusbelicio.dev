@@ -83,10 +83,11 @@ const FormLabel = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>
 >(({ className, ...props }, ref) => {
-  const { error, formItemId } = useFormField();
+  const { error, formItemId, formDescriptionId } = useFormField();
 
   return (
     <Label
+      id={formDescriptionId}
       ref={ref}
       className={cn('text-xs font-bold', error && 'text-destructive', className)}
       htmlFor={formItemId}
@@ -108,6 +109,7 @@ const FormControl = React.forwardRef<
       id={formItemId}
       aria-describedby={!error ? `${formDescriptionId}` : `${formDescriptionId} ${formMessageId}`}
       aria-invalid={!!error}
+      aria-errormessage={formMessageId}
       {...props}
     />
   );

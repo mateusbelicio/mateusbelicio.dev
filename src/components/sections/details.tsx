@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Project } from '@/types/project';
 import { cn } from '@/lib/utils';
 
-import { Icons } from '../icons';
-import ImageWithLoader from '../image-with-loader';
+import { Icons } from '../features/icons';
+import ImageWithLoader from '../features/image-with-loader';
 import { Badge } from '../ui/badge';
 import { buttonVariants } from '../ui/button';
 
@@ -80,14 +80,14 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </div>
         </article>
 
-        <div className="mt-16 flex max-w-full justify-center overflow-hidden border-y border-border sm:mt-20 lg:mt-16">
+        <div className="col-span-full mt-16 flex justify-center overflow-x-clip border-y border-border sm:mt-20 lg:mt-16">
           <Link
             href={previus.path}
-            className="flex w-1/2 flex-grow flex-col items-start overflow-hidden border-r border-border py-6 transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row sm:items-center sm:gap-8 sm:py-8"
+            className="flex w-1/2 grow flex-col items-start border-r border-border py-6 transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row sm:items-center sm:gap-8 sm:py-8"
           >
             <Icons name="previus" className="shrink-0" />
-            <div className="overflow-hidden">
-              <span className="heading-3 mt-4 block w-full overflow-hidden text-ellipsis whitespace-nowrap !leading-9 sm:mt-0">
+            <div className="flex max-w-full grow flex-col">
+              <span className="heading-3 mt-4 inline-block max-w-[80%] overflow-hidden text-ellipsis whitespace-nowrap !leading-9 sm:mt-0">
                 {previus.title}
               </span>
               <span className="leading-[1.875rem] text-foreground/50">Previus Project</span>
@@ -95,11 +95,11 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </Link>
           <Link
             href={next.path}
-            className="flex w-1/2 flex-grow flex-col items-end overflow-hidden py-6 text-right transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row-reverse sm:items-center sm:gap-8 sm:py-8"
+            className="flex w-1/2 grow flex-col items-end py-6 text-right transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row-reverse sm:items-center sm:gap-8 sm:py-8"
           >
             <Icons name="next" className="shrink-0" />
-            <div className="overflow-hidden">
-              <span className="heading-3 mt-4 block w-full overflow-hidden text-ellipsis whitespace-nowrap !leading-9 sm:mt-0">
+            <div className="flex max-w-full grow flex-col items-end">
+              <span className="heading-3 mt-4 inline-block max-w-[80%] overflow-hidden text-ellipsis whitespace-nowrap !leading-9 sm:mt-0">
                 {next.title}
               </span>
               <span className="leading-[1.875rem] text-foreground/50">Next Project</span>

@@ -6,10 +6,10 @@ import { z } from 'zod';
 
 import { Input } from '@/components/ui/input';
 
-import { Button } from './ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
-import { Textarea } from './ui/textarea';
-import { useToast } from './ui/use-toast';
+import { Button } from '../ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '../ui/form';
+import { Textarea } from '../ui/textarea';
+import { useToast } from '../ui/use-toast';
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -121,11 +121,7 @@ export default function ContactForm() {
         />
 
         <div className="flex items-center gap-4">
-          <Button
-            type="submit"
-            variant="secondary"
-            disabled={!methods.formState.isValid || methods.formState.isSubmitting}
-          >
+          <Button type="submit" variant="secondary" disabled={methods.formState.isSubmitting}>
             {methods.formState.isSubmitting ? 'Sending...' : 'Send Message'}
           </Button>
         </div>
