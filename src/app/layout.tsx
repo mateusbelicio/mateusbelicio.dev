@@ -10,7 +10,8 @@ import { cn } from '@/lib/utils';
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
 import { Toaster } from '@/components/ui/toaster';
-import Providers from '@/components/providers';
+import RootProviders from '@/components/providers';
+import Main from '@/components/sections/main';
 
 const fontSerif = Ibarra_Real_Nova({
   subsets: ['latin'],
@@ -70,12 +71,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body
         className={cn('bg-background font-sans antialiased', fontSerif.variable, fontSans.variable)}
       >
-        <Providers>
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <Toaster />
-        </Providers>
+        <RootProviders>
+          <Main>{children}</Main>
+        </RootProviders>
+        <Toaster />
         <SpeedInsights />
         <Analytics />
       </body>
