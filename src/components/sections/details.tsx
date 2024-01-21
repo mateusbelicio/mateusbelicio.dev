@@ -18,18 +18,14 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
   return (
     <section className="pb-8 pt-2 sm:pt-8 lg:pt-11">
       <div className="main-container main-grid lg:items-start">
-        <div className="relative mb-10 h-36 w-full overflow-clip rounded-sm sm:h-80 lg:mb-28 lg:h-[31.25rem]">
-          <ImageWithLoader
-            src={project.hero}
-            sizes="100vw"
-            priority
-            placeholderWidth={1110}
-            placeholderHeight={500}
-            fill
-            className="object-cover"
-            alt="Project thumbnail"
-          />
-        </div>
+        <ImageWithLoader
+          alt="Project thumbnail"
+          className="mb-10 h-36 w-full overflow-clip rounded-sm sm:h-80 lg:mb-28 lg:h-[31.25rem]"
+          fill
+          priority
+          sizes="100vw"
+          src={project.hero}
+        />
         <div className="mb-12 grid justify-items-start gap-6 border-y border-border py-6 sm:mb-10 sm:grid-cols-[inherit] sm:gap-x-[inherit] sm:gap-y-4 sm:py-8 lg:col-span-4 lg:row-span-2 lg:grid-cols-1 lg:py-12 lg:[&>*]:col-span-1">
           <h1 className="heading-2 sm:col-span-5 sm:col-start-1">{project.title}</h1>
           <p className="text-[0.9375rem] sm:col-span-6 sm:col-start-7 sm:row-span-3 lg:row-span-1 lg:mt-3">
@@ -65,17 +61,15 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </h3>
           <div className="mt-7 grid gap-8">
             {project.staticPreviews.map((img, index) => (
-              <div className="relative h-48 w-full sm:h-[25rem]" key={index}>
-                <ImageWithLoader
-                  src={img}
-                  sizes="100vw, (min-width: 940px) 70vw"
-                  placeholderWidth={860}
-                  placeholderHeight={400}
-                  fill
-                  className="rounded-sm object-cover"
-                  alt={`Preview of ${project.title} preject ()${index + 1}`}
-                />
-              </div>
+              <ImageWithLoader
+                alt={`Preview of ${project.title} preject ()${index + 1}`}
+                className="h-48 w-full sm:h-[25rem]"
+                fill
+                imageClassname="rounded-sm object-cover"
+                key={index}
+                sizes="100vw, (min-width: 940px) 70vw"
+                src={img}
+              />
             ))}
           </div>
         </article>

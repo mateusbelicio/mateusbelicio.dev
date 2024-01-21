@@ -7,17 +7,15 @@ function AboutSection() {
   return (
     <section id="about" className="py-12 lg:py-18">
       <div className="main-container main-grid">
-        <div className="relative h-[21.625rem] w-full overflow-clip rounded-sm bg-secondary/50 sm:col-start-1 sm:col-end-6 sm:row-start-1 sm:h-full lg:col-end-7">
-          <ImageWithLoader
-            src="/images/"
-            sizes="(max-width: 640px) 100vw, (max-width: 768px) 60vw, (max-width: 1200px) 50vw"
-            placeholderWidth={540}
-            placeholderHeight={600}
-            fill
-            className="object-cover object-center sm:object-right"
-            alt="Mateus Belicio"
-          />
-        </div>
+        <ImageWithLoader
+          alt="Mateus Belicio"
+          className="h-[21.625rem] w-full overflow-clip rounded-sm sm:col-start-1 sm:col-end-6 sm:row-start-1 sm:h-full lg:col-end-7"
+          fill
+          imageClassname="object-center sm:object-right"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 60vw, (max-width: 1200px) 50vw"
+          src="/images/"
+        />
+
         <div className="my-8 space-y-6 border-y border-border pb-[3.25rem] pt-8 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:my-0 sm:pt-[3.25rem] lg:col-start-8 lg:col-end-12">
           <h2 className="heading-2">About me</h2>
           <p className="mt-1 ">

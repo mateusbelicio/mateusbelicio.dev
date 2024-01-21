@@ -1,20 +1,31 @@
-import Image, { ImageProps } from 'next/image';
+'use client';
 
-import { shimmer, toBase64 } from '@/lib/utils';
+import { useRef } from 'react';
+import Image, { type ImageProps } from 'next/image';
+import { useInView } from 'framer-motion';
+
+import { cn } from '@/lib/utils';
 
 type ImageWithLoaderProps = ImageProps & {
-  placeholderWidth: number;
-  placeholderHeight: number;
+  imageClassname?: string;
 };
 
-function ImageWithLoader({ placeholderWidth, placeholderHeight, ...props }: ImageWithLoaderProps) {
+function ImageWithLoader({ src, className, imageClassname, ...props }: ImageWithLoaderProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '0px 900px' });
+
   return (
-    <Image
-      placeholder={`data:image/svg+xml;base64,${toBase64(
-        shimmer(placeholderWidth, placeholderHeight)
-      )}`}
-      {...props}
-    />
+    <div ref={ref} className={cn('relative bg-foreground/50', className)}>
+      <Image
+        className={cn(
+          'object-cover transition-opacity duration-1000',
+          isInView ? 'opacity-100' : 'opacity-0',
+          imageClassname
+        )}
+        src={src}
+        {...props}
+      />
+    </div>
   );
 }
 
