@@ -16,7 +16,7 @@ function ProjectCard({ title, description, href, thumbnail, buttonLabel }: Proje
     <article className="main-grid group gap-y-8 sm:items-stretch">
       <ImageWithLoader
         alt={`Thumbnail of the project ${title}`}
-        className="-ml-1 h-72 w-full overflow-clip rounded-sm sm:start-1 sm:col-span-6 sm:row-start-1 sm:my-auto sm:h-80 sm:group-odd:col-start-7 lg:h-[31rem]"
+        className="-ml-1 h-72 w-full sm:start-1 sm:col-span-6 sm:row-start-1 sm:my-auto sm:h-80 sm:group-odd:col-start-7 lg:h-[31rem]"
         fill
         imageClassname="object-top"
         sizes="(min-width: 640px) 50vw, 100vw"

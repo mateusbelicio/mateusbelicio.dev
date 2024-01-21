@@ -26,12 +26,11 @@ const SLIDE: Variants = {
 };
 
 const PERSPECTIVE: Variants = {
-  initial: { y: 0, scale: 1, opacity: 1 },
-  enter: { y: 0, scale: 1, opacity: 1 },
+  initial: { y: 0, opacity: 1 },
+  enter: { y: 0, opacity: 1 },
   exit: {
     y: -100,
-    scale: 0.9,
-    opacity: 0.5,
+    opacity: 0.8,
     transition: {
       duration: 1,
       ease: 'easeIn',
@@ -51,7 +50,7 @@ const AnimateWrapper = React.forwardRef<ElementRef<typeof m.div>, AnimateWrapper
     };
 
     return (
-      <div ref={ref} className="bg-foreground">
+      <div ref={ref} className="bg-foreground/75">
         <m.div
           className="pointer-events-none fixed inset-0 z-50 select-none bg-background"
           {...animationTemplate(SLIDE)}

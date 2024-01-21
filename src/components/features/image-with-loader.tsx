@@ -12,10 +12,16 @@ type ImageWithLoaderProps = ImageProps & {
 
 function ImageWithLoader({ src, className, imageClassname, ...props }: ImageWithLoaderProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '0px 900px' });
+  const isInView = useInView(ref, { once: true, margin: '-100px 0px' });
 
   return (
-    <div ref={ref} className={cn('relative bg-foreground/50', className)}>
+    <div
+      ref={ref}
+      className={cn(
+        'relative overflow-clip rounded-sm border border-border/50 bg-foreground/10',
+        className
+      )}
+    >
       <Image
         className={cn(
           'object-cover transition-opacity duration-1000',

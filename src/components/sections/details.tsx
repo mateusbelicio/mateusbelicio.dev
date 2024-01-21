@@ -20,7 +20,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
       <div className="main-container main-grid lg:items-start">
         <ImageWithLoader
           alt="Project thumbnail"
-          className="mb-10 h-36 w-full overflow-clip rounded-sm sm:h-80 lg:mb-28 lg:h-[31.25rem]"
+          className="mb-10 h-36 w-full sm:h-80 lg:mb-28 lg:h-[31.25rem]"
           fill
           priority
           sizes="100vw"
@@ -65,7 +65,6 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
                 alt={`Preview of ${project.title} preject ()${index + 1}`}
                 className="h-48 w-full sm:h-[25rem]"
                 fill
-                imageClassname="rounded-sm object-cover"
                 key={index}
                 sizes="100vw, (min-width: 940px) 70vw"
                 src={img}

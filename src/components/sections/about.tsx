@@ -9,11 +9,11 @@ function AboutSection() {
       <div className="main-container main-grid">
         <ImageWithLoader
           alt="Mateus Belicio"
-          className="h-[21.625rem] w-full overflow-clip rounded-sm sm:col-start-1 sm:col-end-6 sm:row-start-1 sm:h-full lg:col-end-7"
+          className="h-[21.625rem] w-full sm:col-start-1 sm:col-end-6 sm:row-start-1 sm:h-full lg:col-end-7"
           fill
-          imageClassname="object-center sm:object-right"
+          imageClassname="object-center saturate-0"
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 60vw, (max-width: 1200px) 50vw"
-          src="/images/"
+          src="/images/perfil.png"
         />
 
         <div className="my-8 space-y-6 border-y border-border pb-[3.25rem] pt-8 sm:col-start-7 sm:col-end-13 sm:row-start-1 sm:my-0 sm:pt-[3.25rem] lg:col-start-8 lg:col-end-12">
