@@ -15,11 +15,12 @@ const OPACITY: Variants = {
 
 const SLIDE: Variants = {
   initial: { top: '100vh' },
-  enter: { top: '100vh' },
+  enter: { top: '100vh', borderTop: '1px solid hsl(240 5.9% 90% / 0.15)' },
   exit: {
     top: 0,
+    borderTop: '1px solid hsl(240 5.9% 90% / 0.15)',
     transition: {
-      duration: 0.8,
+      duration: 1,
       ease: [0.76, 0, 0.24, 1],
     },
   },
@@ -50,16 +51,12 @@ const AnimateWrapper = React.forwardRef<ElementRef<typeof m.div>, AnimateWrapper
     };
 
     return (
-      <div ref={ref} className="bg-foreground/75">
+      <div ref={ref} className="">
         <m.div
           className="pointer-events-none fixed inset-0 z-50 select-none bg-background"
           {...animationTemplate(SLIDE)}
         />
-        <m.div {...animationTemplate(PERSPECTIVE)} className="bg-background">
-          <m.div {...animationTemplate(OPACITY)}>
-            <FrozenRouter>{children}</FrozenRouter>
-          </m.div>
-        </m.div>
+        <m.div {...animationTemplate(OPACITY)}>{children}</m.div>
       </div>
     );
   }

@@ -72,7 +72,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         className={cn('bg-background font-sans antialiased', fontSerif.variable, fontSans.variable)}
       >
         <RootProviders>
+          <Header />
           <Main>{children}</Main>
+          <Footer />
         </RootProviders>
         <Toaster />
         <SpeedInsights />
