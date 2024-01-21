@@ -11,7 +11,6 @@ module.exports = {
     './content/**/*.{md,mdx}',
   ],
   theme: {
-    backgroundImage: { 'noise-texture': "url('/images/noise.png')" },
     extend: {
       spacing: {
         18: '4.5rem',
