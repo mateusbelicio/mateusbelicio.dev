@@ -3,7 +3,12 @@ import { ThemeProviderProps } from 'next-themes/dist/types';
 
 function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
-    <NextThemeProvider attribute="data-theme" enableSystem {...props}>
+    <NextThemeProvider
+      disableTransitionOnChange={true}
+      attribute="data-theme"
+      enableSystem
+      {...props}
+    >
       {children}
     </NextThemeProvider>
   );
