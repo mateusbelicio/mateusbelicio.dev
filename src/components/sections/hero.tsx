@@ -4,9 +4,8 @@ function HeroSection() {
   return (
     <section className="pb-12 lg:pb-18">
       <div className="main-container main-grid relative gap-y-6">
-        <div className="relative lg:col-start-7 lg:row-start-1"></div>
-        <div className="z-10 flex flex-col items-start gap-8 pt-14 sm:col-start-1 sm:col-end-10 sm:gap-12 sm:self-end sm:pr-14 sm:pt-14 md:row-start-1 lg:col-end-8 lg:gap-[3.25rem]">
-          <h1 className="heading-1 min-w-[19.25rem] max-w-sm">
+        <div className="z-10 flex flex-col items-start gap-8 pt-14 sm:items-center sm:gap-12 sm:pt-14 sm:text-center lg:gap-[3.25rem]">
+          <h1 className="heading-1 relative min-w-[19.25rem] max-w-sm after:left-full after:top-1/2 after:-z-10 sm:after:absolute sm:after:h-36 sm:after:w-36 sm:after:content-[url(/sprites/patterns.svg)]">
             Hey, I’m Mateus Belício and I love building beautiful websites
           </h1>
           <div className="mt-4">

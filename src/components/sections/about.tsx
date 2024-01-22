@@ -26,7 +26,7 @@ function AboutSection() {
             remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature
             whether that’s going for a walk, run or cycling. I’d love you to check out my work.
           </p>
-          <Link href="/portfolio" className={buttonVariants()}>
+          <Link href="/portfolio" className={buttonVariants()} scroll={false}>
             Go to portfolio
           </Link>
         </div>

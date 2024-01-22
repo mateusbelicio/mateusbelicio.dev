@@ -40,6 +40,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </div>
           <Link
             href={project.link}
+            scroll={false}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(buttonVariants(), 'sm:col-span-5 sm:col-start-1 sm:mt-4')}
@@ -76,6 +77,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
         <div className="col-span-full mt-16 flex justify-center overflow-x-clip border-y border-border sm:mt-20 lg:mt-16">
           <Link
             href={previus.path}
+            scroll={false}
             className="flex w-1/2 grow flex-col items-start border-r border-border py-6 transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row sm:items-center sm:gap-8 sm:py-8"
           >
             <Icons name="previus" className="shrink-0" />
@@ -88,6 +90,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </Link>
           <Link
             href={next.path}
+            scroll={false}
             className="flex w-1/2 grow flex-col items-end py-6 text-right transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row-reverse sm:items-center sm:gap-8 sm:py-8"
           >
             <Icons name="next" className="shrink-0" />

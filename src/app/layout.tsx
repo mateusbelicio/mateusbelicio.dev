@@ -40,6 +40,7 @@ export const metadata: Metadata = {
       url: 'https://mateusbelicio.dev',
     },
   ],
+  formatDetection: { telephone: false, date: false, email: false, address: false },
   creator: 'Mateus Belício',
   openGraph: {
     type: 'website',
@@ -78,7 +79,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </RootProviders>
         <Toaster />
         <SpeedInsights />
-        <Analytics />
+        <Analytics mode="production" />
       </body>
     </html>
   );
