@@ -45,7 +45,7 @@ export const EmailTemplate = ({
           <Container className="mx-auto my-10 w-[465px] rounded border border-solid border-neutral-200 p-5">
             <Section className="mt-8">
               <Text className="text-center">
-                <span className="box-border inline-block h-12 w-12 rounded-lg bg-[#09090B] p-1 align-middle text-4xl font-extrabold leading-none text-white">
+                <span className="box-border inline-block h-12 w-12 rounded-sm bg-[#09090B] p-1 align-middle text-4xl font-extrabold leading-none text-white">
                   M
                 </span>
               </Text>

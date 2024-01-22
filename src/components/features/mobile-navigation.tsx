@@ -6,15 +6,15 @@ import type { NavigationItem } from '@/types';
 
 import { cn } from '@/lib/utils';
 
-import { Icons } from './icons';
-import { Button, buttonVariants } from './ui/button';
+import { Button, buttonVariants } from '../ui/button';
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from './ui/navigation-menu';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+} from '../ui/navigation-menu';
+import { Sheet, SheetClose, SheetContent, SheetTrigger } from '../ui/sheet';
+import { Icons } from './icons';
 
 interface MobileNavigationProps {
   items?: NavigationItem[];
@@ -29,7 +29,7 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
       <Sheet>
         <SheetTrigger asChild className="ml-auto flex md:hidden">
           <Button size="icon" variant="ghost">
-            <Icons.menu />
+            <Icons name="menu" />
           </Button>
         </SheetTrigger>
         <SheetContent className="flex w-full flex-col gap-10 pt-20 min-[420px]:max-w-sm">
@@ -39,25 +39,27 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
                 <NavigationMenuList className="flex w-full flex-none flex-col items-stretch justify-start gap-4 space-x-0">
                   {items.map((item) => (
                     <NavigationMenuItem key={item.href}>
-                      <NavigationMenuLink asChild>
-                        <Link
-                          href={item.disabled ? '#' : item.href}
-                          className={cn(
-                            buttonVariants({
-                              variant: 'outline',
-                              size: 'lg',
-                              className: 'w-full justify-center',
-                            }),
-                            item.href.startsWith(`/${segment}`)
-                              ? 'text-foreground'
-                              : 'text-foreground/60',
-                            item.href === '/' && !segment ? 'text-foreground' : '',
-                            item.disabled && 'cursor-not-allowed opacity-80'
-                          )}
-                        >
-                          {item.title}
-                        </Link>
-                      </NavigationMenuLink>
+                      <SheetClose asChild>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.disabled ? '#' : item.href}
+                            className={cn(
+                              buttonVariants({
+                                variant: 'link',
+                                size: 'sm',
+                                className: 'w-full justify-center',
+                              }),
+                              item.href.startsWith(`/${segment}`)
+                                ? 'text-accent hover:text-accent'
+                                : 'text-foreground/60',
+                              item.href === '/' && !segment ? 'text-accent hover:text-accent' : '',
+                              item.disabled && 'cursor-not-allowed opacity-80'
+                            )}
+                          >
+                            {item.title}
+                          </Link>
+                        </NavigationMenuLink>
+                      </SheetClose>
                     </NavigationMenuItem>
                   ))}
                 </NavigationMenuList>

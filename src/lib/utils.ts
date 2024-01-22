@@ -29,12 +29,12 @@ export function shimmer(w: number, h: number) {
   >
     <defs>
       <linearGradient id="g">
-        <stop stop-color="#12121280" offset="20%" />
-        <stop stop-color="#12121260" offset="50%" />
-        <stop stop-color="#12121280" offset="70%" />
+        <stop stop-color="#12121220" offset="20%" />
+        <stop stop-color="#12121210" offset="50%" />
+        <stop stop-color="#12121220" offset="70%" />
       </linearGradient>
     </defs>
-    <rect width="${w}" height="${h}" fill="#12121280" />
+    <rect width="${w}" height="${h}" fill="#12121220" />
     <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
     <animate
       xlink:href="#r"

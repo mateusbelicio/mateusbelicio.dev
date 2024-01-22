@@ -5,8 +5,8 @@ import { useTheme } from 'next-themes';
 
 import { useMounted } from '@/hooks/useMounted';
 
+import { Button } from '../ui/button';
 import { Icons } from './icons';
-import { Button } from './ui/button';
 
 export function ThemeSwitcher() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -24,8 +24,13 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <Button onClick={toggleTheme} variant="ghost" size="icon">
-      {theme === 'dark' ? <Icons.moon /> : <Icons.sun />}
+    <Button
+      onClick={toggleTheme}
+      variant="ghost"
+      size="icon"
+      aria-label={`Change theme to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+    >
+      <Icons name={theme === 'dark' ? 'moon' : 'sun'} />
     </Button>
   );
 }

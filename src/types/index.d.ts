@@ -1,6 +1,6 @@
 import { LucideIcon } from 'lucide-react';
 
-import { Icons } from '@/components/icons';
+import { Icons, IconsName } from '@/components/features/icons';
 
 export type SiteConfig = {
   name: string;
@@ -23,7 +23,7 @@ export type NavigationItem = {
 export type SocialLink = {
   title: string;
   href: string;
-  icon: LucideIcon;
+  icon: IconsName;
 };
 
 export type MainConfig = {

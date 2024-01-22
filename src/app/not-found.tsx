@@ -12,7 +12,7 @@ export default function NotFound() {
         <EmptyPlaceholder.Description>
           This page cound not be found. Please try again.
         </EmptyPlaceholder.Description>
-        <Link href="/" className={buttonVariants({ variant: 'ghost' })}>
+        <Link href="/" className={buttonVariants({ variant: 'secondary' })}>
           Go to home page
         </Link>
       </EmptyPlaceholder>

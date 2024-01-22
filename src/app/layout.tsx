@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Ibarra_Real_Nova } from 'next/font/google';
+import { Ibarra_Real_Nova, Public_Sans } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -10,12 +10,19 @@ import { cn } from '@/lib/utils';
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
 import { Toaster } from '@/components/ui/toaster';
-import Providers from '@/components/providers';
+import RootProviders from '@/components/providers';
+import Main from '@/components/sections/main';
 
 const fontSerif = Ibarra_Real_Nova({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-serif',
+});
+
+const fontSans = Public_Sans({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
@@ -47,27 +54,29 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [`${siteConfig.url}/og.jpg`],
-    creator: '@mateusbelicio',
+    images: ['/og.jpg'],
+    creator: '@beliciomateus',
   },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: '/manifest.webmanifest',
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn('bg-background font-sans antialiased', fontSerif.variable)}>
-        <Providers>
+      <body
+        className={cn('bg-background font-sans antialiased', fontSerif.variable, fontSans.variable)}
+      >
+        <RootProviders>
           <Header />
-          <main className="flex-1 bg-noise-texture bg-repeat-round">{children}</main>
+          <Main>{children}</Main>
           <Footer />
-          <Toaster />
-        </Providers>
+        </RootProviders>
+        <Toaster />
         <SpeedInsights />
         <Analytics />
       </body>

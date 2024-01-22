@@ -3,32 +3,42 @@ import Link from 'next/link';
 import { mainConfig } from '@/config/main';
 import { cn } from '@/lib/utils';
 
-import { Icons } from '../icons';
+import { Icons } from '../features/icons';
 import { buttonVariants } from './button';
 
 function Footer() {
   return (
-    <footer className="bg-secondary bg-noise-texture bg-repeat-round py-14 text-secondary-foreground transition-colors duration-500 selection:bg-background selection:text-foreground sm:py-6">
+    <footer className="bg-secondary py-14 text-secondary-foreground transition-colors duration-500 selection:bg-background selection:text-foreground sm:py-6">
       <div className="main-container flex flex-col items-center gap-10 sm:flex-row sm:gap-12">
-        <div>
-          <Icons.logo width={32} height={32} />
-        </div>
+        <a
+          href="#"
+          className={buttonVariants({ variant: 'ghost', size: 'icon' })}
+          aria-label="Go to top"
+        >
+          <Icons name="logo" width={32} height={32} />
+        </a>
 
         <ul className="flex flex-col sm:flex-grow sm:flex-row">
           {mainConfig.mainNav.map((link) => (
             <li key={link.title}>
-              <Link href={link.href} className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
+              <Link
+                href={link.href}
+                className={cn(
+                  buttonVariants({ variant: 'link', size: 'sm' }),
+                  'w-full text-secondary-foreground md:px-5'
+                )}
+              >
                 {link.title}
               </Link>
             </li>
           ))}
         </ul>
 
-        <ul className="flex gap-4">
+        <ul className="flex gap-2">
           {mainConfig.socialLinks.map((link) => (
             <li key={link.title}>
               <SocialLink href={link.href} label={link.title}>
-                <link.icon size={24} strokeWidth={1.5} />
+                <Icons name={link.icon} size={24} strokeWidth={1.5} />
               </SocialLink>
             </li>
           ))}
@@ -54,7 +64,10 @@ interface SocialLinkProps {
 function SocialLink({ children, label, href }: SocialLinkProps) {
   return (
     <a
-      className="inline-flex rounded-sm text-secondary-foreground outline-none transition-colors hover:text-secondary-foreground/50 focus-visible:text-secondary-foreground/50 focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-secondary-foreground/50"
+      className={cn(
+        buttonVariants({ size: 'icon', variant: 'ghost' }),
+        'hover:bg-secondary-foreground/10'
+      )}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
