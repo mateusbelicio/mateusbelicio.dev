@@ -1,6 +1,6 @@
 import { allProjects } from '@/content/portfolio';
 
-import ProjectCard from '../project-card';
+import ProjectCard from '../features/project-card';
 
 function ProjectsSection() {
   return (
