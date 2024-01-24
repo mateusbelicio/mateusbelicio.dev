@@ -58,15 +58,12 @@ type ButtonIconProps = React.HtmlHTMLAttributes<HTMLSpanElement> & {
 const ButtonIcon = ({ className, asChild, name, ...props }: ButtonIconProps) => (
   <span
     className={cn(
-      '-ml-9 flex items-center self-stretch bg-black/10 px-4 group-hover/btn:text-inherit group-focus-visible/btn:text-inherit [&>svg]:w-4',
+      '-ml-9 flex aspect-square h-full w-12 items-center justify-center self-stretch bg-black/10 group-hover/btn:text-inherit group-focus-visible/btn:text-inherit [&>svg]:w-4',
       className
     )}
     {...props}
   >
-    <Icons
-      className="group-hover/btn:animate-bounce group-focus-visible/btn:animate-bounce"
-      name={name}
-    />
+    <Icons className="animate-bounce" name={name} />
   </span>
 );
 

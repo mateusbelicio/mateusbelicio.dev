@@ -1,4 +1,6 @@
+import React from 'react';
 import Link from 'next/link';
+import parse from 'html-react-parser';
 
 import { Project } from '@/types/project';
 import { cn } from '@/lib/utils';
@@ -48,29 +50,29 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
             Visit website
           </Link>
         </div>
-        <article className="sm:mt-0 lg:col-start-6 lg:col-end-13">
-          <h3 className="heading-3 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
-            Project Background
-          </h3>
-          {project.projectBackground.split('\n').map((projectBg, index) => (
-            <p key={index} className="leading-7 [&:not(:first-child)]:mt-7">
-              {projectBg}
-            </p>
-          ))}
-          <h3 className="heading-3 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
-            Static Previews
-          </h3>
-          <div className="mt-7 grid gap-8">
-            {project.staticPreviews.map((img, index) => (
-              <ImageWithLoader
-                alt={`Preview of ${project.title} preject ()${index + 1}`}
-                className="h-48 w-full sm:h-[25rem]"
-                fill
-                key={index}
-                sizes="100vw, (min-width: 940px) 70vw"
-                src={img}
-              />
-            ))}
+        <article className="space-y-8 sm:mt-0 lg:col-start-6 lg:col-end-13 [&_*]:leading-7 [&_*]:text-foreground/80 [&_a]:text-accent hover:[&_a]:underline [&_li]:marker:text-accent [&_ul]:list-disc [&_ul]:pl-6">
+          <div className="space-y-5">
+            <h3 className="heading-3 mb-7 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
+              Project Background
+            </h3>
+            {parse(project.projectBackground)}
+          </div>
+          <div className="space-y-5">
+            <h3 className="heading-3 mb-7 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
+              Static Previews
+            </h3>
+            <div className="grid gap-8">
+              {project.staticPreviews.map((img, index) => (
+                <ImageWithLoader
+                  alt={`Preview of ${project.title} preject ()${index + 1}`}
+                  className="h-48 w-full sm:h-[25rem]"
+                  fill
+                  key={index}
+                  sizes="100vw, (min-width: 940px) 70vw"
+                  src={img}
+                />
+              ))}
+            </div>
           </div>
         </article>
 
