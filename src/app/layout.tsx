@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
 import { Toaster } from '@/components/ui/toaster';
+import SkipToContent from '@/components/features/skip-to-content';
 import RootProviders from '@/components/providers';
 import Main from '@/components/sections/main';
 
@@ -64,6 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body
         className={cn('bg-background font-sans antialiased', fontSerif.variable, fontSans.variable)}
       >
+        <SkipToContent />
         <RootProviders>
           <Header />
           <Main>{children}</Main>

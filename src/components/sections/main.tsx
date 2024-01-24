@@ -10,7 +10,7 @@ function Main({ children }: React.PropsWithChildren) {
 
   return (
     <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
-      <m.main key={pathname} className="flex-1">
+      <m.main id="main" key={pathname} className="flex-1">
         <FrozenRouter>{children}</FrozenRouter>
       </m.main>
     </AnimatePresence>
