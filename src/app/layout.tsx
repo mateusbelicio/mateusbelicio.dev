@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 import Footer from '@/components/ui/footer';
 import Header from '@/components/ui/header';
 import { Toaster } from '@/components/ui/toaster';
+import SkipToContent from '@/components/features/skip-to-content';
 import RootProviders from '@/components/providers';
 import Main from '@/components/sections/main';
 
@@ -28,18 +29,11 @@ const fontSans = Public_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   alternates: { canonical: '/' },
-  title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.shortName}`,
-  },
+  title: { default: siteConfig.name, template: `%s | ${siteConfig.shortName}` },
   description: siteConfig.description,
-  keywords: ['Next.js', 'React', 'Tailwind CSS', 'Server Components', 'Radix UI'],
-  authors: [
-    {
-      name: 'Mateus Belício',
-      url: 'https://mateusbelicio.dev',
-    },
-  ],
+  keywords: ['Mateus Belicio', 'developer', 'React', 'web', 'front-end'],
+  authors: [{ name: 'Mateus Belício', url: 'https://mateusbelicio.dev' }],
+  formatDetection: { telephone: false, date: false, email: false, address: false },
   creator: 'Mateus Belício',
   openGraph: {
     type: 'website',
@@ -71,6 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body
         className={cn('bg-background font-sans antialiased', fontSerif.variable, fontSans.variable)}
       >
+        <SkipToContent />
         <RootProviders>
           <Header />
           <Main>{children}</Main>
@@ -78,7 +73,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         </RootProviders>
         <Toaster />
         <SpeedInsights />
-        <Analytics />
+        <Analytics mode="production" />
       </body>
     </html>
   );

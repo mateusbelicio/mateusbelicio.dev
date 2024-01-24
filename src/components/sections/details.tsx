@@ -1,4 +1,6 @@
+import React from 'react';
 import Link from 'next/link';
+import parse from 'html-react-parser';
 
 import { Project } from '@/types/project';
 import { cn } from '@/lib/utils';
@@ -40,6 +42,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </div>
           <Link
             href={project.link}
+            scroll={false}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(buttonVariants(), 'sm:col-span-5 sm:col-start-1 sm:mt-4')}
@@ -47,35 +50,36 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
             Visit website
           </Link>
         </div>
-        <article className="sm:mt-0 lg:col-start-6 lg:col-end-13">
-          <h3 className="heading-3 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
-            Project Background
-          </h3>
-          {project.projectBackground.split('\n').map((projectBg, index) => (
-            <p key={index} className="leading-7 [&:not(:first-child)]:mt-7">
-              {projectBg}
-            </p>
-          ))}
-          <h3 className="heading-3 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
-            Static Previews
-          </h3>
-          <div className="mt-7 grid gap-8">
-            {project.staticPreviews.map((img, index) => (
-              <ImageWithLoader
-                alt={`Preview of ${project.title} preject ()${index + 1}`}
-                className="h-48 w-full sm:h-[25rem]"
-                fill
-                key={index}
-                sizes="100vw, (min-width: 940px) 70vw"
-                src={img}
-              />
-            ))}
+        <article className="space-y-8 sm:mt-0 lg:col-start-6 lg:col-end-13 [&_*]:leading-7 [&_*]:text-foreground/80 [&_a]:text-accent hover:[&_a]:underline [&_li]:marker:text-accent [&_ul]:list-disc [&_ul]:pl-6">
+          <div className="space-y-5">
+            <h3 className="heading-3 mb-7 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
+              Project Background
+            </h3>
+            {parse(project.projectBackground)}
+          </div>
+          <div className="space-y-5">
+            <h3 className="heading-3 mb-7 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
+              Static Previews
+            </h3>
+            <div className="grid gap-8">
+              {project.staticPreviews.map((img, index) => (
+                <ImageWithLoader
+                  alt={`Preview of ${project.title} preject ()${index + 1}`}
+                  className="h-48 w-full sm:h-[25rem]"
+                  fill
+                  key={index}
+                  sizes="100vw, (min-width: 940px) 70vw"
+                  src={img}
+                />
+              ))}
+            </div>
           </div>
         </article>
 
         <div className="col-span-full mt-16 flex justify-center overflow-x-clip border-y border-border sm:mt-20 lg:mt-16">
           <Link
             href={previus.path}
+            scroll={false}
             className="flex w-1/2 grow flex-col items-start border-r border-border py-6 transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row sm:items-center sm:gap-8 sm:py-8"
           >
             <Icons name="previus" className="shrink-0" />
@@ -88,6 +92,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           </Link>
           <Link
             href={next.path}
+            scroll={false}
             className="flex w-1/2 grow flex-col items-end py-6 text-right transition-colors hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-primary sm:flex-row-reverse sm:items-center sm:gap-8 sm:py-8"
           >
             <Icons name="next" className="shrink-0" />

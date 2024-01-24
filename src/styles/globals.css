@@ -18,6 +18,7 @@
 
     --secondary: 240 10% 85%;
     --secondary-foreground: 240 5.9% 10%;
+    --secondary-opposite: 240 3.7% 15.9%;
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
@@ -53,6 +54,7 @@
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
+    --secondary-opposite: 240 10% 85%;
 
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
@@ -78,7 +80,7 @@
   }
 
   body {
-    @apply flex min-h-full min-w-[22rem] flex-col bg-background font-sans text-base text-foreground antialiased transition-colors duration-500 selection:bg-accent selection:text-accent-foreground;
+    @apply flex min-h-full min-w-[22rem] flex-col bg-background font-sans text-base text-foreground antialiased selection:bg-accent selection:text-accent-foreground;
   }
 
   p {
@@ -102,7 +104,7 @@
   }
 
   .heading-1 {
-    @apply text-5xl lg:text-[3.125rem] lg:leading-none;
+    @apply text-5xl lg:text-[3.125rem] lg:leading-[1.1];
   }
 
   .heading-2 {
@@ -111,5 +113,11 @@
 
   .heading-3 {
     @apply text-3xl font-normal;
+  }
+}
+
+@layer components {
+  .background-slide {
+    @apply pointer-events-none fixed -right-[300px] top-0 z-50 h-full w-[calc(100vw+600px)];
   }
 }

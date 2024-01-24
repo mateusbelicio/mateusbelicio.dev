@@ -8,7 +8,7 @@ import { buttonVariants } from './button';
 
 function Footer() {
   return (
-    <footer className="bg-secondary py-14 text-secondary-foreground transition-colors duration-500 selection:bg-background selection:text-foreground sm:py-6">
+    <footer className="bg-secondary py-14 text-secondary-foreground selection:bg-background selection:text-foreground sm:py-6">
       <div className="main-container flex flex-col items-center gap-10 sm:flex-row sm:gap-12">
         <a
           href="#"
@@ -23,6 +23,7 @@ function Footer() {
             <li key={link.title}>
               <Link
                 href={link.href}
+                scroll={false}
                 className={cn(
                   buttonVariants({ variant: 'link', size: 'sm' }),
                   'w-full text-secondary-foreground md:px-5'

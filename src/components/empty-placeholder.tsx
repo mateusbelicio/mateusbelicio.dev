@@ -44,7 +44,7 @@ EmptyPlaceholder.Title = function EmptyPlaceholderTitle({
   className,
   ...props
 }: EmptyPlacholderTitleProps) {
-  return <h2 className={cn('mt-6 text-xl font-semibold', className)} {...props} />;
+  return <h2 className={cn('heading-3 mt-6 text-xl font-semibold', className)} {...props} />;
 };
 
 interface EmptyPlacholderDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
@@ -56,7 +56,7 @@ EmptyPlaceholder.Description = function EmptyPlaceholderDescription({
   return (
     <p
       className={cn(
-        'mb-8 mt-2 text-center text-sm font-normal leading-6 text-muted-foreground',
+        'mb-8 mt-2 text-center text-base font-normal leading-6 text-muted-foreground',
         className
       )}
       {...props}
