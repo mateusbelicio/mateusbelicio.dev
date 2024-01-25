@@ -24,7 +24,7 @@ function ImageWithLoader({ src, className, imageClassname, ...props }: ImageWith
     >
       <Image
         className={cn(
-          'object-cover transition-opacity duration-1000',
+          'object-cover transition-opacity duration-500',
           isInView ? 'opacity-100' : 'opacity-0',
           imageClassname
         )}
