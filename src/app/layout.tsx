@@ -12,7 +12,8 @@ import Header from '@/components/ui/header';
 import { Toaster } from '@/components/ui/toaster';
 import SkipToContent from '@/components/features/skip-to-content';
 import RootProviders from '@/components/providers';
-import Main from '@/components/sections/main';
+
+// import Main from '@/components/sections/main';
 
 const fontSerif = Ibarra_Real_Nova({
   subsets: ['latin'],
@@ -68,7 +69,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SkipToContent />
         <RootProviders>
           <Header />
-          <Main>{children}</Main>
+          <main id="main">{children}</main>
           <Footer />
         </RootProviders>
         <Toaster />

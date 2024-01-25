@@ -28,7 +28,7 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
     <div className="flex gap-6 sm:hidden md:gap-10">
       <Sheet>
         <SheetTrigger asChild className="ml-auto flex md:hidden">
-          <Button size="icon" variant="ghost">
+          <Button size="icon" variant="ghost" aria-label="Open navigation menu">
             <Icons name="menu" />
           </Button>
         </SheetTrigger>
