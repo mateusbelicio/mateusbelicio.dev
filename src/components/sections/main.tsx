@@ -1,6 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, m } from 'framer-motion';
 
@@ -12,9 +11,7 @@ function Main({ children }: React.PropsWithChildren) {
   return (
     <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
       <m.main id="main" key={pathname} className="flex-1">
-        <Suspense fallback={<Fallback />}>
-          <FrozenRouter>{children}</FrozenRouter>
-        </Suspense>
+        <FrozenRouter>{children}</FrozenRouter>
       </m.main>
     </AnimatePresence>
   );
