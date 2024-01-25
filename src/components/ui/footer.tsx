@@ -23,7 +23,6 @@ function Footer() {
             <li key={link.title}>
               <Link
                 href={link.href}
-                scroll={false}
                 className={cn(
                   buttonVariants({ variant: 'link', size: 'sm' }),
                   'w-full text-secondary-foreground md:px-5'

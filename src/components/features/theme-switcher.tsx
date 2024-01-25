@@ -1,79 +1,46 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { m, useReducedMotion, Variants } from 'framer-motion';
-import { useTheme } from 'next-themes';
+import { domAnimation, LazyMotion, Variants } from 'framer-motion';
 
 import { animationTemplate } from '@/lib/utils';
-import { useElementPosition } from '@/hooks/useElementPosition';
-import { useMounted } from '@/hooks/useMounted';
+import useThemeSwitcher from '@/hooks/useThemeSwitcher';
 
 import { Button } from '../ui/button';
 import { Icons } from './icons';
 
-const EXPAND_FULL: Variants = {
-  initial: (position) => ({
-    opacity: 1,
-    clipPath: `circle(0% at 
-      ${position.x + position.width / 2}px 
-      ${position.y + position.height / 2}px)
-    `,
-  }),
-  enter: (position) => ({
-    opacity: 1,
-    clipPath: `circle(150% at 
-      ${position.x + position.width / 2}px 
-      ${position.y + position.height / 2}px)
-    `,
-    transitionEnd: { opacity: 0 },
+const TOGGLE_MODE: Variants = {
+  initial: { scale: 0.6, rotate: 90 },
+  enter: {
+    scale: 1,
+    rotate: 0,
     transition: {
-      duration: 1,
-      ease: [0.32, 0, 0.67, 0],
+      type: 'spring',
+      stiffness: 200,
+      damping: 10,
     },
-  }),
+  },
 };
 
 export function ThemeSwitcher() {
-  const [isAnimationEnabled, setIsAnimationEnabled] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const buttonPosition = useElementPosition(buttonRef);
-  const mounted = useMounted();
+  const { theme, buttonRef, isMounted, handlers, ThemeIcon } = useThemeSwitcher();
 
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const shouldReduceMotion = useReducedMotion();
-
-  useEffect(() => {
-    if (mounted && resolvedTheme) setTheme(resolvedTheme);
-  }, [mounted]);
-
-  const toggleTheme = () => (theme === 'dark' ? setTheme('light') : setTheme('dark'));
-  const runAnimation = () => setIsAnimationEnabled(true);
-  const completeAnimation = () => {
-    toggleTheme();
-    setIsAnimationEnabled(false);
-  };
-
-  if (!mounted) return <ButtonFallback />;
+  if (!isMounted) return <ButtonFallback />;
 
   return (
-    <Button
-      ref={buttonRef}
-      onClick={shouldReduceMotion ? toggleTheme : runAnimation}
-      variant="ghost"
-      size="icon"
-      className="relative"
-      aria-label={`Change theme to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-    >
-      <Icons name={theme === 'dark' ? 'moon' : 'sun'} />
-      {isAnimationEnabled ? (
-        <m.span
-          key="theme"
-          {...animationTemplate(EXPAND_FULL, buttonPosition)}
-          onAnimationComplete={completeAnimation}
-          className="pointer-events-none fixed inset-0 z-50 bg-secondary-opposite transition-opacity duration-1000"
-        />
-      ) : null}
-    </Button>
+    <LazyMotion features={domAnimation}>
+      <Button
+        ref={buttonRef}
+        onClick={handlers.toggleTheme}
+        onMouseDown={handlers.mouseHold}
+        onMouseLeave={handlers.mouseLeave}
+        variant="ghost"
+        size="icon"
+        className="relative"
+        aria-label={`Change theme to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      >
+        <ThemeIcon {...animationTemplate(TOGGLE_MODE)} />
+      </Button>
+    </LazyMotion>
   );
 }
 

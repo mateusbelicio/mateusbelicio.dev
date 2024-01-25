@@ -10,7 +10,7 @@ function CallToActionSection() {
           Interested in doing a project together?
         </h2>
         <span className="hidden w-full sm:block sm:h-px sm:flex-grow sm:bg-border"></span>
-        <Link href="/contact" scroll={false} className={buttonVariants()}>
+        <Link href="/contact" className={buttonVariants()}>
           Contact me
         </Link>
       </div>

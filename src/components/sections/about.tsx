@@ -13,7 +13,7 @@ function AboutSection() {
           fill
           priority
           imageClassname="object-center sm:object-bottom saturate-[15%]"
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 60vw, (max-width: 1200px) 50vw"
+          sizes="100vw, (min-width: 400px) 20rem, (min-width: 640px) 40vw, (min-width: 940px) 50vw"
           src="/images/perfil.png"
         />
 
@@ -37,7 +37,7 @@ function AboutSection() {
               remotely. I’d love you to check out my work.
             </p>
           </div>
-          <Link href="/portfolio" className={buttonVariants()} scroll={false}>
+          <Link href="/portfolio" className={buttonVariants()}>
             Go to portfolio
           </Link>
         </div>
