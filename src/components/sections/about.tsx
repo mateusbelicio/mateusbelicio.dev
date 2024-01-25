@@ -37,7 +37,7 @@ function AboutSection() {
               remotely. I’d love you to check out my work.
             </p>
           </div>
-          <Link href="/portfolio" className={buttonVariants()} scroll={false}>
+          <Link href="/portfolio" className={buttonVariants()}>
             Go to portfolio
           </Link>
         </div>

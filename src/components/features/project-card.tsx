@@ -25,7 +25,7 @@ function ProjectCard({ title, description, href, thumbnail, buttonLabel }: Proje
       <div className="flex flex-col items-start gap-6 border-y border-border py-6 sm:col-span-5 sm:col-start-8 sm:row-start-1 sm:pb-12 sm:pt-8 sm:group-odd:col-start-1 lg:col-span-4 lg:col-start-8 lg:justify-center lg:group-odd:col-start-2">
         <h2 className="heading-2 sm:mb-2">{title}</h2>
         <p>{description}</p>
-        <Link scroll={false} href={href} className={buttonVariants()}>
+        <Link href={href} className={buttonVariants()}>
           {buttonLabel}
         </Link>
       </div>

@@ -28,7 +28,6 @@ function MainNavigation({ items }: MainNavigationProps) {
     <div className="flex grow items-center gap-2 sm:gap-6 md:gap-10">
       <Link
         href="/"
-        scroll={false}
         className={cn(
           buttonVariants({ variant: 'ghost', size: 'icon' }),
           'mr-auto flex h-10 w-10 items-center rounded-sm'
@@ -45,7 +44,6 @@ function MainNavigation({ items }: MainNavigationProps) {
                 <NavigationMenuLink asChild>
                   <Link
                     href={item.disabled ? '#' : item.href}
-                    scroll={false}
                     className={cn(
                       buttonVariants({ variant: 'link', size: 'sm' }),
                       item.href.startsWith(`/${segment}`) ? 'text-accent' : 'text-foreground/90',

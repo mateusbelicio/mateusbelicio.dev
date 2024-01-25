@@ -43,7 +43,6 @@ function MobileNavigation({ items, children }: MobileNavigationProps) {
                         <NavigationMenuLink asChild>
                           <Link
                             href={item.disabled ? '#' : item.href}
-                            scroll={false}
                             className={cn(
                               buttonVariants({
                                 variant: 'link',

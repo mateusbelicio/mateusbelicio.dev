@@ -1,7 +1,7 @@
 import AnimateWrapper from '@/components/features/animate-wrapper';
 
 function Template({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <AnimateWrapper>{children}</AnimateWrapper>;
 }
 
 export default Template;
