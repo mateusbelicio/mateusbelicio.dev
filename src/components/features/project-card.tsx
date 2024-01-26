@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { buttonVariants } from '../ui/button';
+import { Icons } from './icons';
 import ImageWithLoader from './image-with-loader';
 
 interface ProjectCardProps {
@@ -8,26 +8,30 @@ interface ProjectCardProps {
   description?: string;
   thumbnail: string;
   href: string;
-  buttonLabel: string;
 }
 
-function ProjectCard({ title, description, href, thumbnail, buttonLabel }: ProjectCardProps) {
+function ProjectCard({ title, description, href, thumbnail }: ProjectCardProps) {
   return (
-    <article className="main-grid group gap-y-8 sm:items-stretch">
+    <article className="flex items-center gap-8 py-8 sm:pb-12 sm:pt-8 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
       <ImageWithLoader
         alt={`Thumbnail of the project ${title}`}
-        className="-ml-1 h-72 w-full sm:start-1 sm:col-span-6 sm:row-start-1 sm:my-auto sm:h-80 sm:group-odd:col-start-7 lg:h-[31rem]"
+        className="hidden h-36 w-64 shrink-0 sm:block"
         fill
         imageClassname="object-top"
-        sizes="(min-width: 640px) 50vw, 100vw"
+        sizes="(min-width: 640px) 12rem"
         src={thumbnail}
       />
-      <div className="flex flex-col items-start gap-6 border-y border-border py-6 sm:col-span-5 sm:col-start-8 sm:row-start-1 sm:pb-12 sm:pt-8 sm:group-odd:col-start-1 lg:col-span-4 lg:col-start-8 lg:justify-center lg:group-odd:col-start-2">
-        <h2 className="heading-2 sm:mb-2">{title}</h2>
-        <p>{description}</p>
-        <Link href={href} className={buttonVariants()}>
-          {buttonLabel}
-        </Link>
+      <div className="flex grow flex-col items-start gap-4">
+        <h3 className="heading-4 w-full text-sm hover:text-accent sm:mb-2">
+          <Link
+            href={href}
+            className="flex justify-between gap-4 focus-visible:text-accent focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-primary"
+          >
+            <span className="text-ellipsi line-clamp-1 overflow-hidden">{title}</span>
+            <Icons name="next" className="shrink-0" />
+          </Link>
+        </h3>
+        <p className="line-clamp-2 max-w-prose overflow-hidden text-ellipsis">{description}</p>
       </div>
     </article>
   );

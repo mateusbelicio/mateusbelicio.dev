@@ -4,7 +4,8 @@ import {
   Briefcase,
   ChevronLeft,
   ChevronRight,
-  Clock4Icon,
+  Clock4,
+  Code2,
   Copyright,
   ExternalLink,
   Github,
@@ -52,7 +53,7 @@ const DownArrowsIcon = ({ ...props }: LucideProps) => (
 
 const IconsDefinitions = {
   back: ArrowLeft,
-  clock: Clock4Icon,
+  clock: Clock4,
   close: X,
   copy: Copyright,
   downArrows: DownArrowsIcon,
@@ -65,6 +66,7 @@ const IconsDefinitions = {
   next: ChevronRight,
   previus: ChevronLeft,
   spinner: Loader2,
+  source: Code2,
   user: User2,
   warning: AlertTriangle,
   work: Briefcase,

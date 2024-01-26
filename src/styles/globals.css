@@ -114,6 +114,10 @@
   .heading-3 {
     @apply text-3xl font-normal;
   }
+
+  .heading-4 {
+    @apply text-xl font-semibold;
+  }
 }
 
 @layer components {

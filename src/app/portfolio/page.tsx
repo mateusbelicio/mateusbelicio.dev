@@ -1,10 +1,12 @@
 import CallToActionSection from '@/components/sections/cta';
-import ProjectsSection from '@/components/sections/projects';
+import OtherProjectsSection from '@/components/sections/other-projects';
+import RecentProjectsSection from '@/components/sections/recent-projects';
 
 function Portfolio() {
   return (
     <>
-      <ProjectsSection />
+      <RecentProjectsSection />
+      <OtherProjectsSection />
       <CallToActionSection />
     </>
   );

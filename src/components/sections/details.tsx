@@ -33,23 +33,35 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
           <p className="text-[0.9375rem] sm:col-span-6 sm:col-start-7 sm:row-span-3 lg:row-span-1 lg:mt-3">
             {project.description}
           </p>
-          <div className="flex flex-wrap gap-2  text-[0.8125rem] font-bold text-primary sm:col-span-5 sm:col-start-1 lg:mt-2">
+          <div className="flex flex-wrap gap-2 text-[0.8125rem] font-bold text-primary sm:col-span-5 sm:col-start-1 lg:mt-2">
             {project?.tags.split(' ').map((tag) => (
               <Badge key={tag} variant="outline" className="border-accent text-accent">
                 {tag}
               </Badge>
             ))}
           </div>
-          <Link
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(buttonVariants(), 'sm:col-span-5 sm:col-start-1 sm:mt-4')}
-          >
-            Visit website
-          </Link>
+          <div className="flex flex-wrap gap-4 sm:col-span-full sm:col-start-1 sm:mt-4">
+            <Link
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ variant: 'secondary' })}
+            >
+              Visit website
+            </Link>
+            <Link
+              href={project.source}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View code"
+              title="View code"
+              className={cn(buttonVariants({ variant: 'outline', size: 'icon' }), 'h-12 w-12')}
+            >
+              <Icons name="source" />
+            </Link>
+          </div>
         </div>
-        <article className="space-y-8 sm:mt-0 lg:col-start-6 lg:col-end-13 [&_*]:leading-7 [&_*]:text-foreground/80 [&_a]:text-accent hover:[&_a]:underline [&_li]:marker:text-accent [&_ul]:list-disc [&_ul]:pl-6">
+        <article className="space-y-8 sm:mt-0 lg:col-start-6 lg:col-end-13 [&_*]:leading-7 [&_*]:text-foreground/80 [&_a]:text-accent hover:[&_a]:underline focus-visible:[&_a]:outline focus-visible:[&_a]:outline-1 focus-visible:[&_a]:outline-offset-4 focus-visible:[&_a]:outline-primary [&_li]:marker:text-accent [&_ul]:list-disc [&_ul]:pl-6">
           <div className="space-y-5">
             <h3 className="heading-3 mb-7 scroll-m-20 [&:not(:first-child)]:mt-10 [&>a]:outline-none">
               Project Background
@@ -63,7 +75,7 @@ function DetailsSection({ project, next, previus }: DetailsProps) {
             <div className="grid gap-8">
               {project.staticPreviews.map((img, index) => (
                 <ImageWithLoader
-                  alt={`Preview of ${project.title} preject ()${index + 1}`}
+                  alt={`Preview of ${project.title} project (${index + 1})`}
                   className="h-48 w-full sm:h-[25rem]"
                   fill
                   key={index}

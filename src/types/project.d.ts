@@ -1,12 +1,14 @@
 export type Project = {
-  title: string;
-  tags: string;
   description: string;
-  thumbnail: string;
   hero: string;
+  highlight: boolean;
   link: string;
-  projectBackground: string;
-  staticPreviews: string[];
-  slug: string;
   path: string;
+  projectBackground: string;
+  slug: string;
+  source: string;
+  staticPreviews: string[];
+  tags: string;
+  thumbnail: string;
+  title: string;
 };
