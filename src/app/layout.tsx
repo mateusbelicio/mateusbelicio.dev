@@ -13,8 +13,6 @@ import { Toaster } from '@/components/ui/toaster';
 import SkipToContent from '@/components/features/skip-to-content';
 import RootProviders from '@/components/providers';
 
-// import Main from '@/components/sections/main';
-
 const fontSerif = Ibarra_Real_Nova({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -30,7 +28,7 @@ const fontSans = Public_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   alternates: { canonical: '/' },
-  title: { default: siteConfig.name, template: `%s | ${siteConfig.shortName}` },
+  title: { default: siteConfig.name, template: `${siteConfig.shortName} - %s` },
   description: siteConfig.description,
   keywords: ['Mateus Belicio', 'developer', 'React', 'web', 'front-end'],
   authors: [{ name: 'Mateus Belício', url: 'https://mateusbelicio.dev' }],
@@ -69,7 +67,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <SkipToContent />
         <RootProviders>
           <Header />
-          <main id="main">{children}</main>
+          <main id="main" className="flex-1">
+            {children}
+          </main>
           <Footer />
         </RootProviders>
         <Toaster />

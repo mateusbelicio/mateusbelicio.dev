@@ -19,11 +19,9 @@ This is my personal portfolio website
 
 <!-- ### About -->
 
-### Screenshot
+### Screenshots
 
-![](./public/images/design/preview-home.png)
-
-![](./public/images/design/preview-portfolio.png)
+![](./public/images/design/preview-mobile.png)
 
 ### Built with
 
